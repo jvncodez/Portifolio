@@ -1,19 +1,101 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
+import { z } from 'zod';
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [showToast, setShowToast] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const contactSchema = z.object({
+    name: z.string().trim().min(1, { message: lang === 'pt' ? 'Nome é obrigatório' : lang === 'es' ? 'Nombre es obligatorio' : 'Name is required' }).max(100),
+    email: z.string().trim().email({ message: lang === 'pt' ? 'E-mail inválido' : lang === 'es' ? 'Correo inválido' : 'Invalid email' }).max(255),
+    message: z.string().trim().min(1, { message: lang === 'pt' ? 'Mensagem é obrigatória' : lang === 'es' ? 'Mensaje es obligatorio' : 'Message is required' }).max(1000),
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({});
+
+    if (!agreed) {
+      setErrors({ terms: lang === 'pt' ? 'Você precisa aceitar os termos' : lang === 'es' ? 'Debes aceptar los términos' : 'You must accept the terms' });
+      return;
+    }
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      message: formData.get('message') as string,
+    };
+
+    const result = contactSchema.safeParse(data);
+    
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) {
+          fieldErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
     setShowToast(true);
     setTimeout(() => setShowToast(false), 3000);
+    (e.target as HTMLFormElement).reset();
+    setAgreed(false);
+  };
+
+  const termsLabel = {
+    pt: (
+      <>
+        Li e concordo com a{' '}
+        <Link to="/privacy" className="text-primary hover:underline">
+          Política de Privacidade
+        </Link>{' '}
+        e{' '}
+        <Link to="/terms" className="text-primary hover:underline">
+          Termos de Serviço
+        </Link>
+        .
+      </>
+    ),
+    en: (
+      <>
+        I have read and agree to the{' '}
+        <Link to="/privacy" className="text-primary hover:underline">
+          Privacy Policy
+        </Link>{' '}
+        and{' '}
+        <Link to="/terms" className="text-primary hover:underline">
+          Terms of Service
+        </Link>
+        .
+      </>
+    ),
+    es: (
+      <>
+        He leído y acepto la{' '}
+        <Link to="/privacy" className="text-primary hover:underline">
+          Política de Privacidad
+        </Link>{' '}
+        y los{' '}
+        <Link to="/terms" className="text-primary hover:underline">
+          Términos de Servicio
+        </Link>
+        .
+      </>
+    ),
   };
 
   const contactInfo = [
@@ -92,29 +174,51 @@ const Contact = () => {
                 <div className="space-y-2">
                   <label className="text-sm font-medium">{t.hire.form.name}</label>
                   <Input
+                    name="name"
                     placeholder={t.hire.form.name}
-                    className="h-12"
+                    className={`h-12 ${errors.name ? 'border-destructive' : ''}`}
                     required
                   />
+                  {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">{t.hire.form.email}</label>
                   <Input
+                    name="email"
                     type="email"
                     placeholder={t.hire.form.email}
-                    className="h-12"
+                    className={`h-12 ${errors.email ? 'border-destructive' : ''}`}
                     required
                   />
+                  {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium">{t.hire.form.message}</label>
                 <Textarea
+                  name="message"
                   placeholder={t.hire.form.message}
-                  className="min-h-32 resize-none"
+                  className={`min-h-32 resize-none ${errors.message ? 'border-destructive' : ''}`}
                   required
                 />
+                {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
+              </div>
+
+              {/* Terms Checkbox */}
+              <div className="space-y-2">
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="terms"
+                    checked={agreed}
+                    onCheckedChange={(checked) => setAgreed(checked as boolean)}
+                    className="mt-1"
+                  />
+                  <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
+                    {termsLabel[lang]}
+                  </label>
+                </div>
+                {errors.terms && <p className="text-sm text-destructive">{errors.terms}</p>}
               </div>
 
               <Button type="submit" size="lg" className="w-full gap-2">
