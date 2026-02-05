@@ -32,7 +32,7 @@ const testimonialsData = [
       en: 'As a sales professional, it is a pleasure to close development projects for Ventture, with the confidence that João and his team will deliver excellent results.',
       es: 'Como comercial, es una satisfacción cerrar proyectos de desarrollo para Ventture, con la confianza de que João y su equipo entregarán resultados de excelencia.',
     },
-    photo: 'https://images.unsplash.com/photo-1544005313-94ff955c463f?auto=format&fit=crop&q=80&w=200',
+    photo: '/images/testimonial-ava.jpg',
   },
   {
     name: 'Sanjay Patel',
