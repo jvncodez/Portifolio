@@ -3,6 +3,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import Header from '@/components/portfolio/Header';
 import Hero from '@/components/portfolio/Hero';
 import Services from '@/components/portfolio/Services';
+import Certifications from '@/components/portfolio/Certifications';
 import Projects from '@/components/portfolio/Projects';
 import Testimonials from '@/components/portfolio/Testimonials';
 import Contact from '@/components/portfolio/Contact';
@@ -18,6 +19,7 @@ const Index = () => {
           <main>
             <Hero />
             <Services />
+            <Certifications />
             <Projects />
             <Testimonials />
             <Contact />

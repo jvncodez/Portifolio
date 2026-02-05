@@ -32,6 +32,27 @@ const translations = {
         { title: 'Consultoria', desc: 'Estratégia tecnológica e mentoria para times de dev.' },
       ],
     },
+    certifications: {
+      title: 'Certificações',
+      items: [
+        { category: 'Cloud', items: ['AWS Training – AWS Academy'] },
+        { category: 'JavaScript', items: ['Intensivo de JavaScript – Hashtag Treinamentos'] },
+        { category: 'Automação', items: ['Automação com Arduino e ESP32 – Crescer Indústria de Automações'] },
+        { category: 'CyberSecurity', items: ['Introdução à CyberSecurity – Cisco', 'CyberSecurity – Cisco'] },
+        { category: 'Python', items: ['Python – Santander Academy'] },
+        { category: 'Versionamento', items: ['Git e GitHub – DIO', 'Git e GitHub – Santander Academy'] },
+      ],
+      philosophy: {
+        title: 'Filosofia Técnica',
+        belief: 'Sistemas não devem apenas funcionar — devem resistir.',
+        pillars: [
+          { title: 'Arquitetura', subtitle: 'é estrutura.' },
+          { title: 'Segurança', subtitle: 'é fundação.' },
+          { title: 'Escalabilidade', subtitle: 'é planejamento.' },
+        ],
+        mission: 'Minha missão é projetar soluções inovadoras e estruturalmente seguras, porque um barco sem casco não chega nem ao rio.',
+      },
+    },
     projects: {
       title: 'Software & Projetos',
       subtitle: 'Vitrine de sistemas avançados e soluções SaaS que desenvolvi.',
@@ -106,6 +127,27 @@ const translations = {
         { title: 'Consulting', desc: 'Tech strategy and mentorship for development teams.' },
       ],
     },
+    certifications: {
+      title: 'Certifications',
+      items: [
+        { category: 'Cloud', items: ['AWS Training – AWS Academy'] },
+        { category: 'JavaScript', items: ['JavaScript Intensive – Hashtag Treinamentos'] },
+        { category: 'Automation', items: ['Automation with Arduino and ESP32 – Crescer Automation Industry'] },
+        { category: 'CyberSecurity', items: ['Introduction to CyberSecurity – Cisco', 'CyberSecurity – Cisco'] },
+        { category: 'Python', items: ['Python – Santander Academy'] },
+        { category: 'Version Control', items: ['Git and GitHub – DIO', 'Git and GitHub – Santander Academy'] },
+      ],
+      philosophy: {
+        title: 'Technical Philosophy',
+        belief: 'Systems should not just work — they must resist.',
+        pillars: [
+          { title: 'Architecture', subtitle: 'is structure.' },
+          { title: 'Security', subtitle: 'is foundation.' },
+          { title: 'Scalability', subtitle: 'is planning.' },
+        ],
+        mission: 'My mission is to design innovative and structurally secure solutions, because a boat without a hull won\'t even reach the river.',
+      },
+    },
     projects: {
       title: 'Software & Projects',
       subtitle: "Showcase of advanced systems and SaaS solutions I've built.",
@@ -179,6 +221,27 @@ const translations = {
         { title: 'Datos e Integraciones', desc: 'Sincronización de datos complejos entre plataformas.' },
         { title: 'Consultoría', desc: 'Estrategia tecnológica y mentoría para equipos de desarrollo.' },
       ],
+    },
+    certifications: {
+      title: 'Certificaciones',
+      items: [
+        { category: 'Cloud', items: ['AWS Training – AWS Academy'] },
+        { category: 'JavaScript', items: ['Intensivo de JavaScript – Hashtag Treinamentos'] },
+        { category: 'Automatización', items: ['Automatización con Arduino y ESP32 – Crescer Industria de Automatización'] },
+        { category: 'Ciberseguridad', items: ['Introducción a Ciberseguridad – Cisco', 'Ciberseguridad – Cisco'] },
+        { category: 'Python', items: ['Python – Santander Academy'] },
+        { category: 'Versionamiento', items: ['Git y GitHub – DIO', 'Git y GitHub – Santander Academy'] },
+      ],
+      philosophy: {
+        title: 'Filosofía Técnica',
+        belief: 'Los sistemas no solo deben funcionar — deben resistir.',
+        pillars: [
+          { title: 'Arquitectura', subtitle: 'es estructura.' },
+          { title: 'Seguridad', subtitle: 'es fundamento.' },
+          { title: 'Escalabilidad', subtitle: 'es planificación.' },
+        ],
+        mission: 'Mi misión es diseñar soluciones innovadoras y estructuralmente seguras, porque un barco sin casco no llega ni al río.',
+      },
     },
     projects: {
       title: 'Software y Proyectos',
