@@ -15,7 +15,9 @@ const translations = {
     hero: {
       badge: 'Disponível para novos projetos',
       title: 'ARQUITETURAS DIGITAIS RESILIENTES',
-      subtitle: 'Eu me chamo João Silva e não atuo apenas na implementação de funcionalidades eu projeto estruturas resilientes. Atuo projetando arquiteturas seguras, integrando sistemas e organizando fluxos de dados com mentalidade de longo prazo.',
+      subtitlePre: 'Eu me chamo ',
+      subtitleName: 'João Silva',
+      subtitlePost: ' e não atuo apenas na implementação de funcionalidades eu projeto estruturas resilientes. Atuo projetando arquiteturas seguras, integrando sistemas e organizando fluxos de dados com mentalidade de longo prazo.',
       cta: 'Ver Portfólio',
       experience: 'Anos Exp.',
     },
@@ -87,7 +89,9 @@ const translations = {
     hero: {
       badge: 'Available for new projects',
       title: 'PIONEERING RESILIENT ARCHITECTURES',
-      subtitle: "My name is João Silva and I don't just implement features I design resilient structures. I architect secure systems, integrate platforms, and organize data flows with a long-term mindset.",
+      subtitlePre: 'My name is ',
+      subtitleName: 'João Silva',
+      subtitlePost: " and I don't just implement features I design resilient structures. I architect secure systems, integrate platforms, and organize data flows with a long-term mindset.",
       cta: 'View Portfolio',
       experience: 'Years Exp.',
     },
@@ -159,7 +163,9 @@ const translations = {
     hero: {
       badge: 'Disponible para nuevos proyectos',
       title: 'ARQUITECTURAS DIGITALES RESILIENTES',
-      subtitle: 'Me llamo João Silva y no solo implemento funcionalidades diseño estructuras resilientes. Diseño arquitecturas seguras, integro sistemas y organizo flujos de datos con mentalidad a largo plazo.',
+      subtitlePre: 'Me llamo ',
+      subtitleName: 'João Silva',
+      subtitlePost: ' y no solo implemento funcionalidades diseño estructuras resilientes. Diseño arquitecturas seguras, integro sistemas y organizo flujos de datos con mentalidad a largo plazo.',
       cta: 'Ver Portafolio',
       experience: 'Años Exp.',
     },
