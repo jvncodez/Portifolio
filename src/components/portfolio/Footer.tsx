@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram, Send } from 'lucide-react';
+import { Github, Linkedin, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -23,7 +21,7 @@ const Footer = () => {
   return (
     <footer className="py-16 border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Logo & Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,26 +92,6 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </motion.div>
-
-          {/* Newsletter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <h4 className="font-semibold mb-4">{t.footer.newsletter}</h4>
-            <form className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="email@exemplo.com"
-                className="flex-1"
-              />
-              <Button size="icon" type="submit">
-                <Send className="w-4 h-4" />
-              </Button>
-            </form>
           </motion.div>
         </div>
 
