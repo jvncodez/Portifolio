@@ -13,6 +13,13 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
+      // One-time migration to set light as default
+      const migrated = localStorage.getItem('theme-migrated-v1');
+      if (!migrated) {
+        localStorage.removeItem('theme');
+        localStorage.setItem('theme-migrated-v1', 'true');
+        return 'light';
+      }
       return (localStorage.getItem('theme') as Theme) || 'light';
     }
     return 'light';
