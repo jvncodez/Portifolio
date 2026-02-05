@@ -53,7 +53,9 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-xl"
             >
-              {t.hero.subtitle}
+              {t.hero.subtitlePre}
+              <span className="text-primary font-semibold">{t.hero.subtitleName}</span>
+              {t.hero.subtitlePost}
             </motion.p>
 
             {/* CTA Button */}
