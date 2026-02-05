@@ -9,29 +9,54 @@ const projectsData = [
   {
     id: 1,
     title: 'Hortec',
-    category: { pt: 'Sistema Automatizado Educacional', en: 'Automated Educational System', es: 'Sistema Educativo Automatizado' },
+    category: { pt: 'Sistema Automatizado de Horta Escolar', en: 'Automated School Garden System', es: 'Sistema Automatizado de Huerto Escolar' },
     image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800',
-    goal: { pt: 'Modernizar o aprendizado técnico com IOT e monitoramento em tempo real.', en: 'Modernize technical learning with IoT and real-time monitoring.', es: 'Modernizar el aprendizaje técnico con IoT y monitoreo en tiempo real.' },
-    solution: { pt: 'Arquitetura baseada em microserviços e sensores integrados via MQTT.', en: 'Microservices architecture with sensors integrated via MQTT.', es: 'Arquitectura de microservicios con sensores integrados vía MQTT.' },
-    stack: ['Python', 'Arduino', 'React', 'Node.js'],
+    goal: { 
+      pt: 'Reduzir a ausência de alunos responsáveis pela manutenção das hortas escolares, automatizando o sistema de rega e ornamentação.', 
+      en: 'Reduce absences of students responsible for maintaining school gardens by automating the watering and ornamentation system.', 
+      es: 'Reducir la ausencia de alumnos responsables del mantenimiento de los huertos escolares, automatizando el sistema de riego y ornamentación.' 
+    },
+    solution: { 
+      pt: 'Sistema automatizado desenvolvido com Arduino Uno e C++, integrando hardware e software para criar uma horta inteligente. Projeto premiado na escola técnica.', 
+      en: 'Automated system developed with Arduino Uno and C++, integrating hardware and software to create a smart garden. Award-winning project at the technical school.', 
+      es: 'Sistema automatizado desarrollado con Arduino Uno y C++, integrando hardware y software para crear un huerto inteligente. Proyecto premiado en la escuela técnica.' 
+    },
+    stack: ['C++', 'Arduino Uno', 'Hardware Integration', 'IoT'],
   },
   {
     id: 2,
     title: 'SayMed',
-    category: { pt: 'Gestão Odontológica', en: 'Dental Management', es: 'Gestión Odontológica' },
+    category: { pt: 'Gestão para Clínicas Odontológicas', en: 'Dental Clinic Management', es: 'Gestión de Clínicas Odontológicas' },
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
-    goal: { pt: 'Simplificar a agenda e prontuários de clínicas odontológicas.', en: 'Simplify scheduling and records for dental clinics.', es: 'Simplificar agenda y expedientes de clínicas dentales.' },
-    solution: { pt: 'Plataforma SaaS com criptografia de ponta a ponta para dados sensíveis.', en: 'SaaS platform with end-to-end encryption for sensitive data.', es: 'Plataforma SaaS con cifrado de extremo a extremo para datos sensibles.' },
-    stack: ['TypeScript', 'Supabase', 'Next.js', 'PostgreSQL'],
+    goal: { 
+      pt: 'Desenvolver um sistema completo de gestão para clínicas odontológicas com arquitetura robusta e integrações modernas.', 
+      en: 'Develop a complete management system for dental clinics with robust architecture and modern integrations.', 
+      es: 'Desarrollar un sistema completo de gestión para clínicas odontológicas con arquitectura robusta e integraciones modernas.' 
+    },
+    solution: { 
+      pt: 'Sistema estruturado com Clean Code e VibeCode. Responsável pela criação do banco de dados, comunicação entre APIs internas, integração com n8n e Supabase via Edge Functions, além da arquitetura backend completa.', 
+      en: 'System structured with Clean Code and VibeCode. Responsible for database creation, internal API communication, n8n and Supabase integration via Edge Functions, plus complete backend architecture.', 
+      es: 'Sistema estructurado con Clean Code y VibeCode. Responsable de la creación de base de datos, comunicación entre APIs internas, integración con n8n y Supabase vía Edge Functions, además de la arquitectura backend completa.' 
+    },
+    stack: ['TypeScript', 'Supabase', 'Edge Functions', 'n8n', 'PostgreSQL'],
   },
   {
     id: 3,
-    title: 'VenttureHearth',
-    category: { pt: 'Startup SaaS Accelerator', en: 'Startup SaaS Accelerator', es: 'Aceleradora de Startups SaaS' },
+    title: 'VenttureHealth',
+    category: { pt: 'Startup de Soluções Médicas', en: 'Healthcare Solutions Startup', es: 'Startup de Soluciones Médicas' },
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
-    goal: { pt: 'Escalar produtos digitais com infraestrutura de alta performance.', en: 'Scale digital products with high-performance infrastructure.', es: 'Escalar productos digitales con infraestructura de alto rendimiento.' },
-    solution: { pt: 'Implementação de CI/CD robusto e automação de processos via n8n.', en: 'Robust CI/CD implementation and process automation via n8n.', es: 'Implementación de CI/CD robusto y automatización de procesos vía n8n.' },
-    stack: ['AWS', 'Docker', 'n8n', 'Python'],
+    goal: { 
+      pt: 'Desenvolver soluções digitais inovadoras para a área da medicina, focando em automações e arquitetura escalável.', 
+      en: 'Develop innovative digital solutions for the medical field, focusing on automation and scalable architecture.', 
+      es: 'Desarrollar soluciones digitales innovadoras para el área médica, enfocándose en automatizaciones y arquitectura escalable.' 
+    },
+    solution: { 
+      pt: 'Desenvolvimento de automações, arquitetura backend e operação. Coordenação de projetos e soluções digitais ao lado de Arthur Muniz.', 
+      en: 'Development of automations, backend architecture and operations. Project coordination and digital solutions alongside Arthur Muniz.', 
+      es: 'Desarrollo de automatizaciones, arquitectura backend y operación. Coordinación de proyectos y soluciones digitales junto a Arthur Muniz.' 
+    },
+    stack: ['Backend Architecture', 'Automation', 'n8n', 'DevOps'],
+    link: 'https://www.instagram.com/arthurmuniz.ia/',
   },
   {
     id: 4,
