@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Code, Cpu, GraduationCap, Briefcase, Target } from 'lucide-react';
+import { Shield, Code, Cpu, GraduationCap, Target } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
@@ -71,46 +71,13 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Experience & Mission */}
+          {/* Mission */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-6"
           >
-            {/* Experience Cards */}
-            <div className="space-y-4">
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border/50">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Briefcase className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Hortec</h4>
-                  <p className="text-sm text-muted-foreground">{t.about.experience.hortec}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border/50">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Briefcase className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">SayMed</h4>
-                  <p className="text-sm text-muted-foreground">{t.about.experience.saymed}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border/50">
-                <div className="p-2 rounded-lg bg-primary/10">
-                  <Briefcase className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">VenttureHealth</h4>
-                  <p className="text-sm text-muted-foreground">{t.about.experience.ventture}</p>
-                </div>
-              </div>
-            </div>
-
             {/* Mission */}
             <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
               <div className="flex items-center gap-3 mb-3">
