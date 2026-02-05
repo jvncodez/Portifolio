@@ -6,10 +6,10 @@ const translations = {
   pt: {
     nav: {
       home: 'Início',
-      projects: 'Projetos',
-      blog: 'Blog',
       services: 'Serviços',
       about: 'Sobre',
+      projects: 'Projetos',
+      testimonials: 'Depoimentos',
       contact: 'Contato',
     },
     hero: {
@@ -64,6 +64,30 @@ const translations = {
         solution: 'Solução',
       },
     },
+    about: {
+      title: 'Sobre Mim',
+      intro: 'João Silva é Coordenador de Desenvolvimento e Operação com forte atuação em CyberSecurity, arquitetura de software e soluções SaaS.',
+      skills: 'Possui experiência com Python aplicado a agentes de Inteligência Artificial, análise de vulnerabilidades, desenvolvimento backend com Node.js e TypeScript, além de integração de APIs e automações utilizando n8n e Supabase Edge Functions.',
+      highlights: {
+        security: 'CyberSecurity',
+        backend: 'Backend',
+        automation: 'Automação',
+      },
+      education: {
+        title: 'Formação',
+        technical: 'Técnico em Desenvolvimento de Sistemas - ETE Luiz Alves Lacerda',
+        university: 'Análise e Desenvolvimento de Sistemas - Universidade Boa Viagem (cursando)',
+      },
+      experience: {
+        hortec: 'Projeto educacional premiado que automatizou uma horta escolar utilizando Arduino (C++), reduzindo a ausência de alunos.',
+        saymed: 'Sistema de gestão para clínicas odontológicas. Responsável pela arquitetura do banco de dados e integrações com Supabase e n8n.',
+        ventture: 'Coordenação de projetos, liderando soluções SaaS, automações e arquiteturas backend com foco em segurança e escalabilidade.',
+      },
+      mission: {
+        title: 'Missão',
+        text: 'Criar soluções inovadoras e proteger ambientes digitais, pois um barco sem casco não chega nem ao rio.',
+      },
+    },
     testimonials: {
       title: 'Depoimentos',
     },
@@ -101,10 +125,10 @@ const translations = {
   en: {
     nav: {
       home: 'Home',
-      projects: 'Projects',
-      blog: 'Blog',
       services: 'Services',
       about: 'About',
+      projects: 'Projects',
+      testimonials: 'Testimonials',
       contact: 'Contact',
     },
     hero: {
@@ -159,6 +183,30 @@ const translations = {
         solution: 'Solution',
       },
     },
+    about: {
+      title: 'About Me',
+      intro: 'João Silva is a Development and Operations Coordinator with strong expertise in CyberSecurity, software architecture, and SaaS solutions.',
+      skills: 'Experienced with Python for AI agents, vulnerability analysis, backend development with Node.js and TypeScript, plus API integrations and automations using n8n and Supabase Edge Functions.',
+      highlights: {
+        security: 'CyberSecurity',
+        backend: 'Backend',
+        automation: 'Automation',
+      },
+      education: {
+        title: 'Education',
+        technical: 'Systems Development Technician - ETE Luiz Alves Lacerda',
+        university: 'Systems Analysis and Development - Boa Viagem University (in progress)',
+      },
+      experience: {
+        hortec: 'Award-winning educational project that automated a school garden using Arduino (C++), reducing student absences.',
+        saymed: 'Management system for dental clinics. Responsible for database architecture and integrations with Supabase and n8n.',
+        ventture: 'Project coordination, leading SaaS solutions, automations, and backend architectures focused on security and scalability.',
+      },
+      mission: {
+        title: 'Mission',
+        text: 'Create innovative solutions and protect digital environments, because a boat without a hull won\'t even reach the river.',
+      },
+    },
     testimonials: {
       title: 'Testimonials',
     },
@@ -196,10 +244,10 @@ const translations = {
   es: {
     nav: {
       home: 'Inicio',
-      projects: 'Proyectos',
-      blog: 'Blog',
       services: 'Servicios',
       about: 'Sobre',
+      projects: 'Proyectos',
+      testimonials: 'Testimonios',
       contact: 'Contacto',
     },
     hero: {
@@ -252,6 +300,30 @@ const translations = {
         stack: 'Tecnologías',
         goal: 'Objetivo',
         solution: 'Solución',
+      },
+    },
+    about: {
+      title: 'Sobre Mí',
+      intro: 'João Silva es Coordinador de Desarrollo y Operación con fuerte actuación en Ciberseguridad, arquitectura de software y soluciones SaaS.',
+      skills: 'Tiene experiencia con Python aplicado a agentes de Inteligencia Artificial, análisis de vulnerabilidades, desarrollo backend con Node.js y TypeScript, además de integración de APIs y automatizaciones usando n8n y Supabase Edge Functions.',
+      highlights: {
+        security: 'Ciberseguridad',
+        backend: 'Backend',
+        automation: 'Automatización',
+      },
+      education: {
+        title: 'Formación',
+        technical: 'Técnico en Desarrollo de Sistemas - ETE Luiz Alves Lacerda',
+        university: 'Análisis y Desarrollo de Sistemas - Universidad Boa Viagem (cursando)',
+      },
+      experience: {
+        hortec: 'Proyecto educativo premiado que automatizó un huerto escolar usando Arduino (C++), reduciendo la ausencia de alumnos.',
+        saymed: 'Sistema de gestión para clínicas odontológicas. Responsable de la arquitectura de base de datos e integraciones con Supabase y n8n.',
+        ventture: 'Coordinación de proyectos, liderando soluciones SaaS, automatizaciones y arquitecturas backend con enfoque en seguridad y escalabilidad.',
+      },
+      mission: {
+        title: 'Misión',
+        text: 'Crear soluciones innovadoras y proteger ambientes digitales, porque un barco sin casco no llega ni al río.',
       },
     },
     testimonials: {
