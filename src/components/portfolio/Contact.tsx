@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
-import { z } from 'zod';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { z } from "zod";
 
 const Contact = () => {
   const { t, lang } = useLanguage();
@@ -16,9 +16,26 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const contactSchema = z.object({
-    name: z.string().trim().min(1, { message: lang === 'pt' ? 'Nome é obrigatório' : lang === 'es' ? 'Nombre es obligatorio' : 'Name is required' }).max(100),
-    email: z.string().trim().email({ message: lang === 'pt' ? 'E-mail inválido' : lang === 'es' ? 'Correo inválido' : 'Invalid email' }).max(255),
-    message: z.string().trim().min(1, { message: lang === 'pt' ? 'Mensagem é obrigatória' : lang === 'es' ? 'Mensaje es obligatorio' : 'Message is required' }).max(1000),
+    name: z
+      .string()
+      .trim()
+      .min(1, {
+        message: lang === "pt" ? "Nome é obrigatório" : lang === "es" ? "Nombre es obligatorio" : "Name is required",
+      })
+      .max(100),
+    email: z
+      .string()
+      .trim()
+      .email({ message: lang === "pt" ? "E-mail inválido" : lang === "es" ? "Correo inválido" : "Invalid email" })
+      .max(255),
+    message: z
+      .string()
+      .trim()
+      .min(1, {
+        message:
+          lang === "pt" ? "Mensagem é obrigatória" : lang === "es" ? "Mensaje es obligatorio" : "Message is required",
+      })
+      .max(1000),
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,19 +43,26 @@ const Contact = () => {
     setErrors({});
 
     if (!agreed) {
-      setErrors({ terms: lang === 'pt' ? 'Você precisa aceitar os termos' : lang === 'es' ? 'Debes aceptar los términos' : 'You must accept the terms' });
+      setErrors({
+        terms:
+          lang === "pt"
+            ? "Você precisa aceitar os termos"
+            : lang === "es"
+              ? "Debes aceptar los términos"
+              : "You must accept the terms",
+      });
       return;
     }
 
     const formData = new FormData(e.currentTarget);
     const data = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      message: formData.get('message') as string,
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
     };
 
     const result = contactSchema.safeParse(data);
-    
+
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
       result.error.errors.forEach((err) => {
@@ -59,11 +83,11 @@ const Contact = () => {
   const termsLabel = {
     pt: (
       <>
-        Li e concordo com a{' '}
+        Li e concordo com a{" "}
         <Link to="/privacy" className="text-primary hover:underline">
           Política de Privacidade
-        </Link>{' '}
-        e{' '}
+        </Link>{" "}
+        e{" "}
         <Link to="/terms" className="text-primary hover:underline">
           Termos de Serviço
         </Link>
@@ -72,11 +96,11 @@ const Contact = () => {
     ),
     en: (
       <>
-        I have read and agree to the{' '}
+        I have read and agree to the{" "}
         <Link to="/privacy" className="text-primary hover:underline">
           Privacy Policy
-        </Link>{' '}
-        and{' '}
+        </Link>{" "}
+        and{" "}
         <Link to="/terms" className="text-primary hover:underline">
           Terms of Service
         </Link>
@@ -85,11 +109,11 @@ const Contact = () => {
     ),
     es: (
       <>
-        He leído y acepto la{' '}
+        He leído y acepto la{" "}
         <Link to="/privacy" className="text-primary hover:underline">
           Política de Privacidad
-        </Link>{' '}
-        y los{' '}
+        </Link>{" "}
+        y los{" "}
         <Link to="/terms" className="text-primary hover:underline">
           Términos de Servicio
         </Link>
@@ -99,9 +123,9 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'joao.silva@tech.com' },
-    { icon: Phone, label: 'Phone', value: '+55 (81) 99999-9999' },
-    { icon: MapPin, label: 'Address', value: 'Recife, PE - Brazil' },
+    { icon: Mail, label: "Email", value: "jvn.silva01@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+55 (81) 981123549" },
+    { icon: MapPin, label: "Address", value: "Recife, PE - Brazil" },
   ];
 
   return (
@@ -114,12 +138,8 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t.hire.title}
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            {t.hire.subtitle}
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.hire.title}</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">{t.hire.subtitle}</p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-4" />
         </motion.div>
 
@@ -164,11 +184,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -176,7 +192,7 @@ const Contact = () => {
                   <Input
                     name="name"
                     placeholder={t.hire.form.name}
-                    className={`h-12 ${errors.name ? 'border-destructive' : ''}`}
+                    className={`h-12 ${errors.name ? "border-destructive" : ""}`}
                     required
                   />
                   {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
@@ -187,7 +203,7 @@ const Contact = () => {
                     name="email"
                     type="email"
                     placeholder={t.hire.form.email}
-                    className={`h-12 ${errors.email ? 'border-destructive' : ''}`}
+                    className={`h-12 ${errors.email ? "border-destructive" : ""}`}
                     required
                   />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
@@ -199,7 +215,7 @@ const Contact = () => {
                 <Textarea
                   name="message"
                   placeholder={t.hire.form.message}
-                  className={`min-h-32 resize-none ${errors.message ? 'border-destructive' : ''}`}
+                  className={`min-h-32 resize-none ${errors.message ? "border-destructive" : ""}`}
                   required
                 />
                 {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
