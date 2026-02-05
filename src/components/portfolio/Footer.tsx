@@ -7,9 +7,9 @@ const Footer = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Github, href: 'https://github.com/jvncodez', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/jo%C3%A3o-silva-2536922aa', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/jvncodes', label: 'Instagram' },
   ];
 
   const quickLinks = [
