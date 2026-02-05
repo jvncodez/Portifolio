@@ -73,6 +73,9 @@ const translations = {
         backend: 'Backend',
         automation: 'Automação',
       },
+      coreStack: {
+        title: 'Core Stack',
+      },
       education: {
         title: 'Formação',
         technical: 'Técnico em Desenvolvimento de Sistemas - ETE Luiz Alves Lacerda',
@@ -187,6 +190,9 @@ const translations = {
         backend: 'Backend',
         automation: 'Automation',
       },
+      coreStack: {
+        title: 'Core Stack',
+      },
       education: {
         title: 'Education',
         technical: 'Systems Development Technician - ETE Luiz Alves Lacerda',
@@ -300,6 +306,9 @@ const translations = {
         security: 'Ciberseguridad',
         backend: 'Backend',
         automation: 'Automatización',
+      },
+      coreStack: {
+        title: 'Core Stack',
       },
       education: {
         title: 'Formación',

@@ -69,6 +69,23 @@ const About = () => {
                 </div>
               ))}
             </div>
+
+            {/* Core Stack */}
+            <div className="space-y-3">
+              <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider">
+                {t.about.coreStack.title}
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {['Python', 'TypeScript', 'Node.js', 'React', 'Supabase', 'Docker'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 rounded-lg bg-background border border-border text-sm font-medium text-foreground hover:border-primary/50 transition-colors"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
           {/* Mission */}
