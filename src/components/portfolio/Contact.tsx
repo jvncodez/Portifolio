@@ -74,8 +74,13 @@ const Contact = () => {
       return;
     }
 
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 3000);
+    // Build WhatsApp message
+    const whatsappMessage = `Olá, me chamo ${encodeURIComponent(data.name)}, meu email é o ${encodeURIComponent(data.email)} estou entrando em contato devido ${encodeURIComponent(data.message)}`;
+    const whatsappUrl = `https://wa.me/+5581981123549?text=${whatsappMessage}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+    
     (e.target as HTMLFormElement).reset();
     setAgreed(false);
   };
