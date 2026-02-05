@@ -51,9 +51,9 @@ const projectsData = [
       es: 'Desarrollar soluciones digitales innovadoras para el área médica, enfocándose en automatizaciones y arquitectura escalable.' 
     },
     solution: { 
-      pt: 'Desenvolvimento de automações, arquitetura backend e operação. Coordenação de projetos e soluções digitais ao lado de Arthur Muniz.', 
-      en: 'Development of automations, backend architecture and operations. Project coordination and digital solutions alongside Arthur Muniz.', 
-      es: 'Desarrollo de automatizaciones, arquitectura backend y operación. Coordinación de proyectos y soluciones digitales junto a Arthur Muniz.' 
+      pt: 'Desenvolvimento de automações, arquitetura backend e operação. Atuo na parte de coordenação de projetos e soluções digitais ao lado de Arthur Muniz.', 
+      en: 'Development of automations, backend architecture and operations. I work on project coordination and digital solutions alongside Arthur Muniz.', 
+      es: 'Desarrollo de automatizaciones, arquitectura backend y operación. Actúo en la coordinación de proyectos y soluciones digitales junto a Arthur Muniz.' 
     },
     stack: ['Backend Architecture', 'Automation', 'n8n', 'DevOps'],
     link: 'https://www.instagram.com/arthurmuniz.ia/',
