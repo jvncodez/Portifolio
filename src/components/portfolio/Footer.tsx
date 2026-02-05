@@ -16,7 +16,7 @@ const Footer = () => {
   const quickLinks = [
     { label: t.nav.home, href: '#hero' },
     { label: t.nav.projects, href: '#projects' },
-    { label: t.nav.blog, href: '#blog' },
+    { label: t.nav.about, href: '#about' },
   ];
 
   return (
