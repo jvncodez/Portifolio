@@ -69,13 +69,17 @@ const projectsData = [
   },
 ];
 
-const Projects = () => {
+interface ProjectsProps {
+  embedded?: boolean;
+}
+
+const Projects = ({ embedded = false }: ProjectsProps) => {
   const { lang, t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
 
-  return (
-    <section id="projects" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+  const content = (
+    <>
+      <div className={embedded ? '' : 'container mx-auto px-6'}>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -147,7 +151,6 @@ const Projects = () => {
               </DialogHeader>
 
               <div className="space-y-6">
-                {/* Image */}
                 <div className="rounded-xl overflow-hidden">
                   <img
                     src={selectedProject.image}
@@ -156,7 +159,6 @@ const Projects = () => {
                   />
                 </div>
 
-                {/* Goal */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.goal}</h4>
                   <p className="text-muted-foreground">
@@ -164,7 +166,6 @@ const Projects = () => {
                   </p>
                 </div>
 
-                {/* Solution */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.solution}</h4>
                   <p className="text-muted-foreground">
@@ -172,7 +173,6 @@ const Projects = () => {
                   </p>
                 </div>
 
-                {/* Stack */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.stack}</h4>
                   <div className="flex flex-wrap gap-2">
@@ -188,6 +188,16 @@ const Projects = () => {
           )}
         </DialogContent>
       </Dialog>
+    </>
+  );
+
+  if (embedded) return content;
+
+  return (
+    <section id="projects" className="py-24 bg-secondary/30">
+      <div className="container mx-auto px-6">
+        {content}
+      </div>
     </section>
   );
 };
