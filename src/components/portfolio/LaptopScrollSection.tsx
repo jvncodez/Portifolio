@@ -5,6 +5,56 @@ import Projects from './Projects';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 
+const KeyboardKeys = () => {
+  // Simplified keyboard layout rows
+  const rows = [
+    { keys: 13, height: 'h-[14px]' },
+    { keys: 13, height: 'h-[14px]' },
+    { keys: 12, height: 'h-[14px]' },
+    { keys: 11, height: 'h-[14px]' },
+    { keys: 9, height: 'h-[14px]', hasSpacebar: true },
+  ];
+
+  return (
+    <div className="flex flex-col gap-[3px] px-[8%] pt-[6%]">
+      {rows.map((row, ri) => (
+        <div key={ri} className="flex gap-[3px] justify-center">
+          {row.hasSpacebar ? (
+            <>
+              {Array.from({ length: 3 }).map((_, ki) => (
+                <div
+                  key={ki}
+                  className={`${row.height} flex-1 rounded-[2px]`}
+                  style={{ background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.08)' }}
+                />
+              ))}
+              <div
+                className={`${row.height} rounded-[2px]`}
+                style={{ flex: 4, background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.08)' }}
+              />
+              {Array.from({ length: 3 }).map((_, ki) => (
+                <div
+                  key={ki + 10}
+                  className={`${row.height} flex-1 rounded-[2px]`}
+                  style={{ background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.08)' }}
+                />
+              ))}
+            </>
+          ) : (
+            Array.from({ length: row.keys }).map((_, ki) => (
+              <div
+                key={ki}
+                className={`${row.height} flex-1 rounded-[2px]`}
+                style={{ background: 'rgba(255,255,255,0.06)', border: '0.5px solid rgba(255,255,255,0.08)' }}
+              />
+            ))
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const LaptopScrollSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
@@ -15,8 +65,8 @@ const LaptopScrollSection = () => {
     offset: ['start start', 'end end'],
   });
 
-  // Phase 1: 0-40% — lid opens
-  const lidRotate = useTransform(scrollYProgress, [0, 0.4], [-85, -5]);
+  // Phase 1: 0-40% — lid opens (85deg = closed flat, 0deg = open upright)
+  const lidRotate = useTransform(scrollYProgress, [0, 0.4], [85, 0]);
   const laptopScale = useTransform(scrollYProgress, [0, 0.4], [0.9, 1]);
   const laptopY = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
 
@@ -49,42 +99,44 @@ const LaptopScrollSection = () => {
       >
         <LaptopParticles />
 
-        {/* Laptop container */}
+        {/* Laptop wrapper with perspective */}
         <motion.div
           className="relative z-10"
           style={{
             scale: laptopScale,
             y: laptopY,
-            perspective: 1500,
+            perspective: 1200,
           }}
         >
+          {/* Entire laptop tilted slightly for top-down view */}
           <div
             className="relative mx-auto"
             style={{
               width: 'min(900px, 80vw)',
               transformStyle: 'preserve-3d',
+              transform: 'rotateX(12deg)',
             }}
           >
-            {/* Lid / Screen */}
+            {/* === LID (Screen) === */}
             <motion.div
-              className="relative origin-bottom"
               style={{
                 rotateX: lidRotate,
+                transformOrigin: 'bottom center',
                 transformStyle: 'preserve-3d',
               }}
             >
               <div
-                className="relative rounded-t-2xl overflow-hidden"
+                className="relative rounded-t-xl overflow-hidden"
                 style={{
                   aspectRatio: '16/10',
-                  background: '#0a0a0a',
-                  border: '2px solid rgba(96,165,250,0.3)',
-                  boxShadow: '0 0 30px rgba(96,165,250,0.15)',
+                  background: '#0c0c0c',
+                  border: '2px solid rgba(96,165,250,0.25)',
+                  boxShadow: '0 0 30px rgba(96,165,250,0.1)',
                 }}
               >
                 {/* Screen bezel */}
                 <div
-                  className="absolute inset-0 rounded-t-xl m-2 overflow-hidden"
+                  className="absolute inset-0 m-[6px] rounded-lg overflow-hidden"
                   style={{ background: '#111' }}
                 >
                   {/* Screen content — scrolls internally */}
@@ -92,7 +144,7 @@ const LaptopScrollSection = () => {
                     <Projects embedded />
                   </motion.div>
 
-                  {/* Screen reflection / gloss */}
+                  {/* Screen reflection */}
                   <motion.div
                     className="absolute inset-0 pointer-events-none"
                     style={{
@@ -105,10 +157,10 @@ const LaptopScrollSection = () => {
 
                 {/* Camera dot */}
                 <div
-                  className="absolute top-1 left-1/2 -translate-x-1/2 rounded-full"
+                  className="absolute top-[2px] left-1/2 -translate-x-1/2 rounded-full"
                   style={{
-                    width: 6,
-                    height: 6,
+                    width: 5,
+                    height: 5,
                     background: '#1a1a1a',
                     border: '1px solid rgba(96,165,250,0.3)',
                   }}
@@ -116,28 +168,42 @@ const LaptopScrollSection = () => {
               </div>
             </motion.div>
 
-            {/* Base / Keyboard area */}
+            {/* === HINGE === */}
             <div
-              className="relative rounded-b-2xl"
               style={{
-                height: 18,
-                background: 'linear-gradient(180deg, #1a1a1a 0%, #111 100%)',
-                border: '2px solid rgba(96,165,250,0.2)',
+                height: 6,
+                background: 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%)',
+                borderLeft: '2px solid rgba(96,165,250,0.15)',
+                borderRight: '2px solid rgba(96,165,250,0.15)',
+              }}
+            />
+
+            {/* === BASE (Keyboard + Trackpad) === */}
+            <div
+              className="relative rounded-b-xl overflow-hidden"
+              style={{
+                paddingBottom: '8%',
+                background: 'linear-gradient(180deg, #1c1c1e 0%, #141416 100%)',
+                border: '2px solid rgba(96,165,250,0.15)',
                 borderTop: 'none',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 0 20px rgba(96,165,250,0.08)',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.6), 0 0 15px rgba(96,165,250,0.06)',
               }}
             >
-              {/* Trackpad notch */}
-              <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 rounded-b-lg"
-                style={{
-                  width: 80,
-                  height: 4,
-                  background: '#222',
-                  border: '1px solid rgba(96,165,250,0.15)',
-                  borderTop: 'none',
-                }}
-              />
+              {/* Keyboard */}
+              <KeyboardKeys />
+
+              {/* Trackpad */}
+              <div className="flex justify-center mt-[6px]">
+                <div
+                  className="rounded-md"
+                  style={{
+                    width: '35%',
+                    height: 50,
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                  }}
+                />
+              </div>
             </div>
 
             {/* Shadow under laptop */}
@@ -153,7 +219,7 @@ const LaptopScrollSection = () => {
           </div>
         </motion.div>
 
-        {/* Fade-in text after scroll */}
+        {/* Fade-in text */}
         <motion.p
           className="absolute bottom-12 text-center text-sm font-medium z-10"
           style={{
