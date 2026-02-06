@@ -43,6 +43,16 @@ const testimonialsData = [
     },
     photo: "/images/img-julio.jpeg",
   },
+   {
+    name: "Joanderson Lacerda",
+    role: "Professor de Quimica, rdenador de projetosno periodo da Hortec, Mentor",
+    text: {
+      pt: "Em desenvolvimento",
+      en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
+      es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
+    },
+    photo: "",
+  },
 ];
 
 const Testimonials = () => {
