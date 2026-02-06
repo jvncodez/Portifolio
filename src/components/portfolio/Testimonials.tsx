@@ -35,7 +35,7 @@ const testimonialsData = [
     photo: "/images/testimonial-ava.jpg",
   },
   {
-    name: "Sanjay Patel",
+    name: "Júlio César",
     role: "Engineering Director",
     text: {
       pt: "Ele se destaca pelo seu conhecimento em arquitetura e sua habilidade de resolver problemas complexos de negócio.",
