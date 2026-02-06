@@ -69,17 +69,13 @@ const projectsData = [
   },
 ];
 
-interface ProjectsProps {
-  embedded?: boolean;
-}
-
-const Projects = ({ embedded = false }: ProjectsProps) => {
+const Projects = () => {
   const { lang, t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null);
 
-  const content = (
-    <>
-      <div className={embedded ? '' : 'container mx-auto px-6'}>
+  return (
+    <section id="projects" className="py-24 bg-secondary/30">
+      <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -151,6 +147,7 @@ const Projects = ({ embedded = false }: ProjectsProps) => {
               </DialogHeader>
 
               <div className="space-y-6">
+                {/* Image */}
                 <div className="rounded-xl overflow-hidden">
                   <img
                     src={selectedProject.image}
@@ -159,6 +156,7 @@ const Projects = ({ embedded = false }: ProjectsProps) => {
                   />
                 </div>
 
+                {/* Goal */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.goal}</h4>
                   <p className="text-muted-foreground">
@@ -166,6 +164,7 @@ const Projects = ({ embedded = false }: ProjectsProps) => {
                   </p>
                 </div>
 
+                {/* Solution */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.solution}</h4>
                   <p className="text-muted-foreground">
@@ -173,6 +172,7 @@ const Projects = ({ embedded = false }: ProjectsProps) => {
                   </p>
                 </div>
 
+                {/* Stack */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.stack}</h4>
                   <div className="flex flex-wrap gap-2">
@@ -188,16 +188,6 @@ const Projects = ({ embedded = false }: ProjectsProps) => {
           )}
         </DialogContent>
       </Dialog>
-    </>
-  );
-
-  if (embedded) return content;
-
-  return (
-    <section id="projects" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        {content}
-      </div>
     </section>
   );
 };

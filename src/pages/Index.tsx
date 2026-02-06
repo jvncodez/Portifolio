@@ -5,7 +5,7 @@ import Hero from '@/components/portfolio/Hero';
 import Services from '@/components/portfolio/Services';
 import About from '@/components/portfolio/About';
 import Certifications from '@/components/portfolio/Certifications';
-import LaptopScrollSection from '@/components/portfolio/LaptopScrollSection';
+import Projects from '@/components/portfolio/Projects';
 import Testimonials from '@/components/portfolio/Testimonials';
 import Contact from '@/components/portfolio/Contact';
 import FAQ from '@/components/portfolio/FAQ';
@@ -22,7 +22,7 @@ const Index = () => {
             <Services />
             <About />
             <Certifications />
-            <LaptopScrollSection />
+            <Projects />
             <Testimonials />
             <Contact />
             <FAQ />
