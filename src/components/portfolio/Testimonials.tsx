@@ -73,7 +73,7 @@ const Testimonials = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <Card className="h-full">
+              <Card className="h-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/50">
                 <CardContent className="p-6 space-y-4">
                   {/* Rating */}
                   <div className="flex items-center gap-1">
