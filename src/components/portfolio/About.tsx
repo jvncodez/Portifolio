@@ -97,7 +97,7 @@ const About = () => {
                 {t.about.coreStack.title}
               </h4>
               <div className="flex flex-wrap gap-2">
-                {['Python', 'TypeScript', 'JavaScript', 'Node.js', 'React', 'HTML', 'CSS', 'C++', 'Supabase', 'Docker'].map((tech) => (
+                {['Python', 'TypeScript', 'JavaScript', 'Node.js', 'React', 'HTML', 'CSS', 'C++', 'Supabase', 'Docker', 'n8n', 'Lovable', 'Cursor', 'Git', 'GitHub', 'Linux', 'IPv4', 'IPv6'].map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1.5 rounded-lg bg-background border border-border text-sm font-medium text-foreground hover:border-primary/50 transition-colors"
