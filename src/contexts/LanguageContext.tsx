@@ -90,7 +90,7 @@ const translations = {
       title: 'Depoimentos',
     },
     hire: {
-      title: 'Contrate-me',
+      title: 'Entre em Contato',
       subtitle: 'Vamos trabalhar juntos para criar soluções inovadoras usando tecnologia avançada.',
       form: {
         name: 'Nome',
@@ -207,7 +207,7 @@ const translations = {
       title: 'Testimonials',
     },
     hire: {
-      title: 'Hire Me',
+      title: 'Get in Touch',
       subtitle: "Let's work together to create innovative solutions using advanced technology.",
       form: {
         name: 'Name',
@@ -324,7 +324,7 @@ const translations = {
       title: 'Testimonios',
     },
     hire: {
-      title: 'Contrátame',
+      title: 'Ponte en Contacto',
       subtitle: 'Trabajemos juntos para crear soluciones innovadoras utilizando tecnología avanzada.',
       form: {
         name: 'Nombre',
