@@ -43,17 +43,20 @@ const testimonialsData = [
     },
     photo: "/images/img-julio.jpeg",
   },
-   {
+  {
     name: "Joanderson Lacerda",
-    role: "Professor de Quimica, rdenador de projetosno periodo da Hortec, Mentor",
+    role: "Professor de Química, Coordenador de Projetos - Hortec, Mentor",
     text: {
       pt: "Em desenvolvimento",
-      en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
-      es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
+      en: "Under development",
+      es: "En desarrollo",
     },
     photo: "",
   },
 ];
+
+const getInitials = (name: string) =>
+  name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
 
 const Testimonials = () => {
   const { lang, t } = useLanguage();
@@ -77,8 +80,8 @@ const Testimonials = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        {/* Testimonials Grid - 2 columns on desktop */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {/* Testimonials Grid - 3 columns on desktop */}
+        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
           {testimonialsData.map((testimonial, i) => (
             <motion.div
               key={i}
@@ -86,7 +89,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative"
+              className="group relative w-full md:w-[calc(33.333%-1rem)]"
             >
               <div className="relative h-full rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_hsl(var(--primary)/0.15)]">
                 {/* Quote icon */}
@@ -111,11 +114,17 @@ const Testimonials = () => {
                 {/* Author */}
                 <div className="flex items-center gap-4 pt-5 border-t border-border/50">
                   <div className="relative">
-                    <img
-                      src={testimonial.photo}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
-                    />
+                    {testimonial.photo ? (
+                      <img
+                        src={testimonial.photo}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-primary/10 ring-2 ring-primary/20 ring-offset-2 ring-offset-background flex items-center justify-center">
+                        <span className="text-sm font-semibold text-primary">{getInitials(testimonial.name)}</span>
+                      </div>
+                    )}
                   </div>
                   <div>
                     <p className="font-semibold text-sm text-foreground">{testimonial.name}</p>
