@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Card, CardContent } from "@/components/ui/card";
 
 const testimonialsData = [
   {
@@ -19,8 +18,8 @@ const testimonialsData = [
     role: "Founder BME Medic",
     text: {
       pt: "Gostaria de registrar nosso reconhecimento e agradecimento ao João por todo o trabalho realizado no setor de TI. Durante o período em que esteve conosco, demonstrou comprometimento, profissionalismo e muita disposição para colaborar com o time, sempre buscando soluções e contribuindo para a melhoria contínua dos processos.",
-      en: "I would like to express our recognition and gratitude to João for all the work done in the IT department. During his time with us, he demonstrated commitment, professionalism, and great willingness to collaborate with the team, always seeking solutions and contributing to the continuous improvement of processes.\n\nYou are a person of great determination and drive, and I am sure you will take these qualities wherever you go, achieving great results.",
-      es: "Me gustaría registrar nuestro reconocimiento y agradecimiento a João por todo el trabajo realizado en el sector de TI. Durante el período en que estuvo con nosotros, demostró compromiso, profesionalismo y mucha disposición para colaborar con el equipo, siempre buscando soluciones y contribuyendo a la mejora continua de los procesos.\n\nEres una persona de mucha garra y determinación, y estoy seguro de que llevarás esas cualidades a donde vayas, conquistando grandes resultados.",
+      en: "I would like to express our recognition and gratitude to João for all the work done in the IT department. During his time with us, he demonstrated commitment, professionalism, and great willingness to collaborate with the team, always seeking solutions and contributing to the continuous improvement of processes.",
+      es: "Me gustaría registrar nuestro reconocimiento y agradecimiento a João por todo el trabajo realizado en el sector de TI. Durante el período en que estuvo con nosotros, demostró compromiso, profesionalismo y mucha disposición para colaborar con el equipo, siempre buscando soluciones y contribuyendo a la mejora continua de los procesos.",
     },
     photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200",
   },
@@ -50,8 +49,13 @@ const Testimonials = () => {
   const { lang, t } = useLanguage();
 
   return (
-    <section id="testimonials" className="py-24">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-24 relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,8 +67,8 @@ const Testimonials = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Testimonials Grid - 2 columns on desktop */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {testimonialsData.map((testimonial, i) => (
             <motion.div
               key={i}
@@ -72,34 +76,43 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              className="group relative"
             >
-              <Card className="h-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/50">
-                <CardContent className="p-6 space-y-4">
-                  {/* Rating */}
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, star) => (
-                      <Star key={star} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                    <span className="ml-2 text-sm font-medium text-muted-foreground">5.0</span>
+              <div className="relative h-full rounded-2xl border border-border/50 bg-card/60 backdrop-blur-sm p-8 transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_30px_-5px_hsl(var(--primary)/0.15)]">
+                {/* Quote icon */}
+                <div className="absolute -top-4 right-8">
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+                    <Quote className="w-4 h-4 text-primary" />
                   </div>
+                </div>
 
-                  {/* Quote */}
-                  <p className="text-muted-foreground italic">"{testimonial.text[lang]}"</p>
+                {/* Rating */}
+                <div className="flex items-center gap-1 mb-5">
+                  {[...Array(5)].map((_, star) => (
+                    <Star key={star} className="w-4 h-4 fill-primary text-primary" />
+                  ))}
+                </div>
 
-                  {/* Author */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-border">
+                {/* Quote text */}
+                <p className="text-muted-foreground leading-relaxed mb-6 text-[15px]">
+                  "{testimonial.text[lang]}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-5 border-t border-border/50">
+                  <div className="relative">
                     <img
                       src={testimonial.photo}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
                     />
-                    <div>
-                      <p className="font-semibold text-sm">{testimonial.name}</p>
-                      <p className="text-xs text-muted-foreground">{testimonial.role}</p>
-                    </div>
                   </div>
-                </CardContent>
-              </Card>
+                  <div>
+                    <p className="font-semibold text-sm text-foreground">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
