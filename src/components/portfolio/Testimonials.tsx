@@ -38,9 +38,9 @@ const testimonialsData = [
     name: "Júlio César",
     role: "Engineering Director",
     text: {
-      pt: "Ele se destaca pelo seu conhecimento em arquitetura e sua habilidade de resolver problemas complexos de negócio.",
-      en: "He stands out for his architecture knowledge and ability to solve complex business problems.",
-      es: "Se destaca por su conocimiento en arquitectura y su habilidad para resolver problemas complejos de negocio.",
+      pt: "Ele se destaca pela sua persistência, constância e seus conhecimentos em Cloud e IA",
+      en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
+      es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
     },
     photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
   },
