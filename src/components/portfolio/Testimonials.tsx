@@ -14,14 +14,14 @@ const testimonialsData = [
     photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
   },
   {
-    name: "João Eduardo",
-    role: "Founder BME Medic",
+    name: "Eisangela Rocha",
+    role: "Analista de Ti - Samoa Resorts",
     text: {
       pt: "Gostaria de registrar nosso reconhecimento e agradecimento ao João por todo o trabalho realizado no setor de TI. Durante o período em que esteve conosco, demonstrou comprometimento, profissionalismo e muita disposição para colaborar com o time, sempre buscando soluções e contribuindo para a melhoria contínua dos processos.",
       en: "I would like to express our recognition and gratitude to João for all the work done in the IT department. During his time with us, he demonstrated commitment, professionalism, and great willingness to collaborate with the team, always seeking solutions and contributing to the continuous improvement of processes.",
       es: "Me gustaría registrar nuestro reconocimiento y agradecimiento a João por todo el trabajo realizado en el sector de TI. Durante el período en que estuvo con nosotros, demostró compromiso, profesionalismo y mucha disposición para colaborar con el equipo, siempre buscando soluciones y contribuyendo a la mejora continua de los procesos.",
     },
-    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200",
+    photo: "/images/img-elis.jpeg",
   },
   {
     name: "Rodrigo Silva",
@@ -41,7 +41,7 @@ const testimonialsData = [
       en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
       es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
     },
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+    photo: "/images/img-julio.jpeg",
   },
 ];
 
