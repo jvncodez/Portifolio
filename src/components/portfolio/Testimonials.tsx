@@ -45,7 +45,7 @@ const testimonialsData = [
   },
    {
     name: "Joanderson Lacerda",
-    role: "Professor de Quimica, rdenador de projetosno periodo da Hortec, Mentor",
+    role: "Professor de Quimica,coordenador de projetos no periodo da HorTec",
     text: {
       pt: "Em desenvolvimento",
       en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
