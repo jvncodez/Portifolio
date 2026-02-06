@@ -16,7 +16,7 @@ const LaptopScrollSection = () => {
   });
 
   // Phase 1: 0-40% — lid opens
-  const lidRotate = useTransform(scrollYProgress, [0, 0.4], [85, 15]);
+  const lidRotate = useTransform(scrollYProgress, [0, 0.4], [-85, -5]);
   const laptopScale = useTransform(scrollYProgress, [0, 0.4], [0.9, 1]);
   const laptopY = useTransform(scrollYProgress, [0, 0.4], [40, 0]);
 
