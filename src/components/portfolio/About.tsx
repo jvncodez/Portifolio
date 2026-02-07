@@ -46,8 +46,8 @@ const About = () => {
             </div>
 
             {/* Education */}
-            <div className="flex items-start gap-4 p-4 rounded-xl bg-background/50 border border-border/50">
-              <div className="p-2 rounded-lg bg-primary/10">
+            <div className="glass-card p-4 flex items-start gap-4">
+              <div className="p-2 rounded-lg glass-badge">
                 <GraduationCap className="w-5 h-5 text-primary" />
               </div>
               <div>
@@ -62,7 +62,7 @@ const About = () => {
               {highlights.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full glass-badge text-primary text-sm font-medium"
                 >
                   <item.icon className="w-4 h-4" />
                   {item.label}
@@ -79,9 +79,9 @@ const About = () => {
             className="space-y-6"
           >
             {/* Mission */}
-            <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+            <div className="glass-card p-6 glow-primary">
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 rounded-lg bg-primary/20">
+                <div className="p-2 rounded-lg glass-badge">
                   <Target className="w-5 h-5 text-primary" />
                 </div>
                 <h4 className="font-bold text-lg">{t.about.mission.title}</h4>
@@ -100,7 +100,7 @@ const About = () => {
                 {['Python', 'TypeScript', 'JavaScript', 'Node.js', 'React', 'HTML', 'CSS', 'C++', 'Supabase', 'Docker', 'n8n', 'Lovable', 'Cursor', 'Git', 'GitHub', 'Linux', 'IPv4', 'IPv6', 'Infraestrutura de Rede'].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 rounded-lg bg-background border border-border text-sm font-medium text-foreground hover:border-primary/50 transition-colors"
+                    className="px-3 py-1.5 rounded-lg glass glass-border text-sm font-medium text-foreground hover:border-primary/40 transition-all duration-300"
                   >
                     {tech}
                   </span>

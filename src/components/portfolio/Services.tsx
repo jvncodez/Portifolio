@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Code2, ShieldCheck, Cloud, Zap, Database, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Card, CardContent } from '@/components/ui/card';
 
 const serviceIcons = [Code2, ShieldCheck, Cloud, Zap, Database, Globe];
 
@@ -36,15 +35,13 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Card className="h-full group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-muted-foreground">{service.desc}</p>
-                  </CardContent>
-                </Card>
+                <div className="glass-card h-full p-6 group glow-hover">
+                  <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                  <p className="text-muted-foreground">{service.desc}</p>
+                </div>
               </motion.div>
             );
           })}

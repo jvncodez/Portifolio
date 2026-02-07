@@ -6,42 +6,12 @@ const Certifications = () => {
   const { t } = useLanguage();
 
   const certifications = [
-    {
-      icon: Cloud,
-      category: t.certifications.items[0].category,
-      items: t.certifications.items[0].items,
-      color: 'text-blue-400',
-    },
-    {
-      icon: Code,
-      category: t.certifications.items[1].category,
-      items: t.certifications.items[1].items,
-      color: 'text-yellow-400',
-    },
-    {
-      icon: Bot,
-      category: t.certifications.items[2].category,
-      items: t.certifications.items[2].items,
-      color: 'text-green-400',
-    },
-    {
-      icon: Shield,
-      category: t.certifications.items[3].category,
-      items: t.certifications.items[3].items,
-      color: 'text-red-400',
-    },
-    {
-      icon: Terminal,
-      category: t.certifications.items[4].category,
-      items: t.certifications.items[4].items,
-      color: 'text-purple-400',
-    },
-    {
-      icon: GitBranch,
-      category: t.certifications.items[5].category,
-      items: t.certifications.items[5].items,
-      color: 'text-orange-400',
-    },
+    { icon: Cloud, category: t.certifications.items[0].category, items: t.certifications.items[0].items, color: 'text-blue-400' },
+    { icon: Code, category: t.certifications.items[1].category, items: t.certifications.items[1].items, color: 'text-yellow-400' },
+    { icon: Bot, category: t.certifications.items[2].category, items: t.certifications.items[2].items, color: 'text-green-400' },
+    { icon: Shield, category: t.certifications.items[3].category, items: t.certifications.items[3].items, color: 'text-red-400' },
+    { icon: Terminal, category: t.certifications.items[4].category, items: t.certifications.items[4].items, color: 'text-purple-400' },
+    { icon: GitBranch, category: t.certifications.items[5].category, items: t.certifications.items[5].items, color: 'text-orange-400' },
   ];
 
   return (
@@ -69,10 +39,10 @@ const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass glass-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300"
+              className="glass-card p-6 glow-hover"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className={`p-2 rounded-lg bg-secondary/50 ${cert.color}`}>
+                <div className={`p-2 rounded-lg glass-badge ${cert.color}`}>
                   <cert.icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-semibold text-lg">{cert.category}</h3>
@@ -96,7 +66,7 @@ const Certifications = () => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <div className="glass glass-border rounded-2xl p-8 md:p-12 text-center">
+          <div className="glass-card p-8 md:p-12 text-center glow-primary">
             <h3 className="text-2xl md:text-3xl font-bold mb-6 text-primary">
               {t.certifications.philosophy.title}
             </h3>
@@ -111,7 +81,7 @@ const Certifications = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-4 rounded-xl bg-secondary/50"
+                  className="p-4 rounded-xl glass glass-border"
                 >
                   <p className="font-semibold text-foreground">{pillar.title}</p>
                   <p className="text-sm text-muted-foreground">{pillar.subtitle}</p>
