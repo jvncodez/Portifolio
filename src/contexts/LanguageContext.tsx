@@ -86,6 +86,10 @@ const translations = {
         text: 'Minha missão é criar soluções inovadoras e proteger ambientes digitais, pois um barco sem casco não chega nem ao rio.',
       },
     },
+    systemAlert: {
+      label: 'ALERTA SISTÊMICO',
+      text: 'Isso já está acontecendo. Empresas estão substituindo atendentes e closers humanos por sistemas de IA enquanto a maioria ainda discute ferramenta. Não é tendência. É infraestrutura sendo trocada.',
+    },
     testimonials: {
       title: 'Depoimentos',
     },
@@ -203,6 +207,10 @@ const translations = {
         text: "My mission is to create innovative solutions and protect digital environments, because a boat without a hull won't even reach the river.",
       },
     },
+    systemAlert: {
+      label: 'SYSTEMIC ALERT',
+      text: "This is already happening. Companies are replacing human agents and closers with AI systems while most people are still debating tools. It's not a trend. It's infrastructure being replaced.",
+    },
     testimonials: {
       title: 'Testimonials',
     },
@@ -319,6 +327,10 @@ const translations = {
         title: 'Misión',
         text: 'Mi misión es crear soluciones innovadoras y proteger ambientes digitales, porque un barco sin casco no llega ni al río.',
       },
+    },
+    systemAlert: {
+      label: 'ALERTA SISTÉMICA',
+      text: 'Esto ya está sucediendo. Las empresas están reemplazando agentes y closers humanos por sistemas de IA mientras la mayoría aún debate herramientas. No es tendencia. Es infraestructura siendo reemplazada.',
     },
     testimonials: {
       title: 'Testimonios',

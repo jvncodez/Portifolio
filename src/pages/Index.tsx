@@ -1,5 +1,6 @@
 import Header from '@/components/portfolio/Header';
 import Hero from '@/components/portfolio/Hero';
+import SystemAlert from '@/components/portfolio/SystemAlert';
 import Services from '@/components/portfolio/Services';
 import About from '@/components/portfolio/About';
 import Certifications from '@/components/portfolio/Certifications';
@@ -15,6 +16,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <SystemAlert />
         <Services />
         <About />
         <Certifications />
