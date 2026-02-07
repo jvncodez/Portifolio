@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -109,6 +109,42 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.hire.title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{t.hire.subtitle}</p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-4" />
+        </motion.div>
+
+        {/* Systemic Alert */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <div className="relative glass-card border-primary/30 p-6 md:p-8 rounded-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-primary/5 animate-pulse-glow rounded-2xl" />
+            <div className="relative z-10 flex items-start gap-4">
+              <motion.div
+                animate={{ rotate: [0, -10, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                className="flex-shrink-0 p-2 rounded-lg glass-badge"
+              >
+                <AlertTriangle className="w-6 h-6 text-primary" />
+              </motion.div>
+              <div className="space-y-2">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-primary">
+                  {t.systemAlert.label}
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  {t.systemAlert.text}
+                </p>
+              </div>
+            </div>
+            <motion.div
+              className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
+              animate={{ x: ['-100%', '100%'] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+              style={{ width: '50%' }}
+            />
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
