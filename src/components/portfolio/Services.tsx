@@ -79,7 +79,11 @@ const Services = () => {
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.4)]"
+                    style={{
+                      background: 'linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--primary) / 0.05))',
+                      border: '1px solid hsl(var(--primary) / 0.2)',
+                    }}
                   >
                     <Icon className="w-6 h-6 text-primary" />
                   </motion.div>

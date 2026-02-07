@@ -134,55 +134,74 @@ const Projects = () => {
 
       {/* Project Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl glass-strong border-white/10">
+        <DialogContent className="max-w-2xl border-0 p-0 overflow-hidden bg-transparent shadow-none [&>button]:text-foreground [&>button]:z-20">
           {selectedProject && (
-            <>
-              <DialogHeader>
-                <div className="space-y-2">
-                  <p className="text-sm text-primary font-medium">
+            <div className="relative rounded-2xl overflow-hidden" style={{
+              background: 'hsl(var(--card) / 0.7)',
+              backdropFilter: 'blur(40px) saturate(1.5)',
+              border: '1px solid hsl(0 0% 100% / 0.12)',
+              boxShadow: '0 25px 60px -12px rgba(0,0,0,0.4), inset 0 1px 0 0 hsl(0 0% 100% / 0.1)',
+            }}>
+              {/* Header image with gradient fade */}
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/30 to-transparent" />
+                <div className="absolute bottom-4 left-6 right-6 z-10">
+                  <p className="text-sm text-primary font-medium mb-1">
                     {selectedProject.category[lang]}
                   </p>
-                  <DialogTitle className="text-2xl">
-                    {selectedProject.title}
-                  </DialogTitle>
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold text-foreground drop-shadow-lg">
+                      {selectedProject.title}
+                    </DialogTitle>
+                  </DialogHeader>
                 </div>
-              </DialogHeader>
+              </div>
 
-              <div className="space-y-6">
-                <div className="rounded-xl overflow-hidden">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-48 object-cover"
-                  />
-                </div>
-
-                <div className="glass-card p-4">
-                  <h4 className="font-semibold mb-2">{t.projects.modal.goal}</h4>
-                  <p className="text-muted-foreground">
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                <div className="rounded-xl p-4 transition-all duration-300 hover:border-primary/30" style={{
+                  background: 'hsl(var(--card) / 0.5)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid hsl(0 0% 100% / 0.08)',
+                }}>
+                  <h4 className="font-semibold mb-2 text-foreground">{t.projects.modal.goal}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {selectedProject.goal[lang]}
                   </p>
                 </div>
 
-                <div className="glass-card p-4">
-                  <h4 className="font-semibold mb-2">{t.projects.modal.solution}</h4>
-                  <p className="text-muted-foreground">
+                <div className="rounded-xl p-4 transition-all duration-300 hover:border-primary/30" style={{
+                  background: 'hsl(var(--card) / 0.5)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid hsl(0 0% 100% / 0.08)',
+                }}>
+                  <h4 className="font-semibold mb-2 text-foreground">{t.projects.modal.solution}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {selectedProject.solution[lang]}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-2">{t.projects.modal.stack}</h4>
+                  <h4 className="font-semibold mb-3 text-foreground">{t.projects.modal.stack}</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.stack.map((tech) => (
-                      <Badge key={tech} className="glass-badge text-primary border-primary/20">
+                      <Badge key={tech} className="rounded-lg px-3 py-1 text-xs font-medium text-primary border-primary/20" style={{
+                        background: 'hsl(var(--primary) / 0.1)',
+                        backdropFilter: 'blur(10px)',
+                        border: '1px solid hsl(var(--primary) / 0.25)',
+                      }}>
                         {tech}
                       </Badge>
                     ))}
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           )}
         </DialogContent>
       </Dialog>

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ParticleBackground from './ParticleBackground';
-import { Button } from '@/components/ui/button';
 
 const easeOut = [0.25, 0.4, 0.25, 1] as const;
 
@@ -88,13 +87,22 @@ const Hero = () => {
               animate="visible"
               variants={textVariants}
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="group gap-2 px-8 glass-btn text-primary-foreground rounded-xl animate-glow-pulse" asChild>
-                  <a href="#projects">
-                    {t.hero.cta}
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
-                  </a>
-                </Button>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+                <a
+                  href="#projects"
+                  className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-primary-foreground overflow-hidden transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8))',
+                    boxShadow: '0 0 30px -5px hsl(var(--primary) / 0.4), inset 0 1px 0 0 hsl(0 0% 100% / 0.15)',
+                  }}
+                >
+                  {/* Shimmer overlay */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
+                  {/* Border glow */}
+                  <span className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-white/40 transition-colors" />
+                  <span className="relative z-10">{t.hero.cta}</span>
+                  <ArrowRight className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -112,7 +120,7 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               {/* Rotating ring */}
-              <div className="absolute -inset-4 rounded-[2rem] border border-primary/20 animate-rotate-slow" style={{ animationDuration: '30s' }} />
+              <div className="absolute -inset-4 rounded-3xl border border-primary/20 animate-rotate-slow" style={{ animationDuration: '30s' }} />
               
               {/* Profile Image with glass frame */}
               <div className="w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden glass-border shadow-2xl glow-primary">
