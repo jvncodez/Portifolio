@@ -13,7 +13,7 @@ const About = () => {
     { icon: Cpu, label: t.about.highlights.automation },
   ];
 
-  const techStack = ['Python', 'TypeScript', 'JavaScript', 'Node.js', 'React', 'HTML', 'CSS', 'C++', 'Supabase', 'Docker', 'n8n', 'Lovable', 'Cursor', 'Git', 'GitHub', 'Linux', 'IPv4', 'IPv6', 'Infraestrutura de Rede'];
+  const techStack = ['Python', 'TypeScript', 'JavaScript', 'Node.js', 'React', 'HTML', 'CSS', 'C++', 'Supabase', 'Docker', 'n8n', 'Cursor', 'Git', 'GitHub', 'Linux', 'IPv4', 'IPv6', 'Infraestrutura de Rede'];
 
   return (
     <section id="about" className="py-24 bg-secondary/30 relative overflow-hidden">
