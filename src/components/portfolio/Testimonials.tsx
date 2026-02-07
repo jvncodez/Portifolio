@@ -47,11 +47,7 @@ const testimonialsData = [
   },
   {
     name: "Joanderson Lacerda",
-<<<<<<< HEAD
     role: "Professor de Química, Coordenador de Projetos - Hortec",
-=======
-    role: "Professor de Quimica,Coordenador de projetos no periodo da Hortec",
->>>>>>> 3dfa9c1 (att 12)
     text: {
       pt: "Em desenvolvimento",
       en: "Under development",
