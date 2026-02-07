@@ -1,8 +1,20 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ParticleBackground from './ParticleBackground';
 import { Button } from '@/components/ui/button';
+
+const easeOut = [0.25, 0.4, 0.25, 1] as const;
+
+const textVariants = {
+  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { delay: i * 0.15, duration: 0.8, ease: easeOut },
+  }),
+};
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -11,23 +23,35 @@ const Hero = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <ParticleBackground />
 
-      <div className="container mx-auto px-6 py-20">
+      {/* Animated background orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <motion.div
+          animate={{ x: [0, 30, -20, 0], y: [0, -40, 20, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, -30, 20, 0], y: [0, 30, -20, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/8 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             {/* Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              variants={textVariants}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-badge backdrop-blur-md"
             >
-              <CheckCircle2 className="w-4 h-4 text-primary" />
+              <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+                <Sparkles className="w-4 h-4 text-primary" />
+              </motion.div>
               <span className="text-sm font-medium text-primary">
                 {t.hero.badge}
               </span>
@@ -35,9 +59,10 @@ const Hero = () => {
 
             {/* Title */}
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              custom={1}
+              initial="hidden"
+              animate="visible"
+              variants={textVariants}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
               {t.hero.title}
@@ -45,9 +70,10 @@ const Hero = () => {
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              custom={2}
+              initial="hidden"
+              animate="visible"
+              variants={textVariants}
               className="text-lg text-muted-foreground max-w-xl"
             >
               {t.hero.subtitlePre}
@@ -57,27 +83,37 @@ const Hero = () => {
 
             {/* CTA Button */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              custom={3}
+              initial="hidden"
+              animate="visible"
+              variants={textVariants}
             >
-              <Button size="lg" className="group gap-2 px-8 glass-btn text-primary-foreground rounded-xl" asChild>
-                <a href="#projects">
-                  {t.hero.cta}
-                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="group gap-2 px-8 glass-btn text-primary-foreground rounded-xl animate-glow-pulse" asChild>
+                  <a href="#projects">
+                    {t.hero.cta}
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+                  </a>
+                </Button>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, delay: 0.4, type: "spring", stiffness: 100 }}
             className="relative flex justify-center lg:justify-end"
           >
-            <div className="relative">
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {/* Rotating ring */}
+              <div className="absolute -inset-4 rounded-[2rem] border border-primary/20 animate-rotate-slow" style={{ animationDuration: '30s' }} />
+              
               {/* Profile Image with glass frame */}
               <div className="w-72 h-72 md:w-96 md:h-96 rounded-3xl overflow-hidden glass-border shadow-2xl glow-primary">
                 <img
@@ -89,19 +125,37 @@ const Hero = () => {
 
               {/* Experience Badge - glass */}
               <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8, type: 'spring' }}
-                className="absolute -bottom-4 -right-4 glass-strong glass-border rounded-2xl p-4 shadow-xl glow-primary"
+                initial={{ scale: 0, rotate: -20 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ delay: 1, type: 'spring', stiffness: 200 }}
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                className="absolute -bottom-4 -right-4 glass-strong glass-border rounded-2xl p-4 shadow-xl animate-glow-pulse cursor-default"
               >
                 <div className="text-3xl font-bold text-primary">5+</div>
                 <div className="text-sm text-muted-foreground">{t.hero.experience}</div>
               </motion.div>
 
-              {/* Decorative Elements */}
+              {/* Floating decorative dots */}
+              <motion.div
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-6 -left-6 w-4 h-4 bg-primary/40 rounded-full"
+              />
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-1/2 -right-8 w-3 h-3 bg-primary/30 rounded-full"
+              />
+              <motion.div
+                animate={{ y: [0, -10, 0], x: [0, 5, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -bottom-6 left-1/4 w-2 h-2 bg-primary/50 rounded-full"
+              />
+
+              {/* Decorative blur orbs */}
               <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-pulse-glow" />
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl animate-pulse-glow" />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
