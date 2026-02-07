@@ -2,14 +2,15 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { personalData } from '@/data/personal.loader';
 
 const Footer = () => {
   const { t } = useLanguage();
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/jvncodez', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/jo%C3%A3o-silva-2536922aa', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://www.instagram.com/jvncodes', label: 'Instagram' },
+    { icon: Github, href: personalData.socialLinks.github, label: 'GitHub' },
+    { icon: Linkedin, href: personalData.socialLinks.linkedin, label: 'LinkedIn' },
+    { icon: Instagram, href: personalData.socialLinks.instagram, label: 'Instagram' },
   ];
 
   const quickLinks = [

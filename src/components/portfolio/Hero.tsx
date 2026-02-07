@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ParticleBackground from './ParticleBackground';
+import { personalData } from '@/data/personal.loader';
 
 const easeOut = [0.25, 0.4, 0.25, 1] as const;
 
@@ -128,7 +129,7 @@ const Hero = () => {
                 <img
                   alt="Profile"
                   className="w-full h-full object-cover"
-                  src="/lovable-uploads/fc6c684b-f9e3-49e2-985f-78d3ac366989.png"
+                  src={personalData.profilePhoto}
                 />
               </div>
 

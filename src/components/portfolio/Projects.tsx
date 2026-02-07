@@ -4,14 +4,14 @@ import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import hortecBg from '@/assets/hortec-bg.jpg';
+import { personalData } from '@/data/personal.loader';
 
 const projectsData = [
   {
     id: 1,
     title: 'Hortec',
     category: { pt: 'Sistema Automatizado de Horta Escolar', en: 'Automated School Garden System', es: 'Sistema Automatizado de Huerto Escolar' },
-    image: hortecBg,
+    image: personalData.projectImages.hortec,
     goal: { 
       pt: 'Reduzir a ausência de alunos responsáveis pela manutenção das hortas escolares, automatizando o sistema de rega e ornamentação.', 
       en: 'Reduce absences of students responsible for maintaining school gardens by automating the watering and ornamentation system.', 
