@@ -1,27 +1,86 @@
 
 
-# Depoimentos em Grid 3x3
+# Plano Unificado: Preparar Projeto para GitHub
 
-## Objetivo
-Alterar o layout da seção de depoimentos de 2 colunas para 3 colunas no desktop.
+## Parte 1 -- Proteger dados pessoais e imagens
 
-## Alterações
+### 1.1 Atualizar `.gitignore`
+Adicionar ao final do arquivo:
+```
+# Dados pessoais e imagens privadas
+public/images/
+public/lovable-uploads/
+src/assets/hortec-bg.jpg
+src/data/personal.ts
+```
 
-### Arquivo: `src/components/portfolio/Testimonials.tsx`
+### 1.2 Criar `src/data/personal.ts` (ignorado pelo Git)
+Arquivo com todos os dados reais: fotos de depoimentos, links sociais, foto de perfil, imagem do Hortec e dados dos testimonials (nomes, cargos, textos).
 
-1. **Mudar o grid de 2 para 3 colunas:**
-   - Alterar `grid md:grid-cols-2` para `grid md:grid-cols-3`
-   - Ajustar `max-w-5xl` para `max-w-6xl` para acomodar 3 colunas
+### 1.3 Criar `src/data/personal.defaults.ts` (commitado no Git)
+Arquivo com dados placeholder:
+- Nomes genericos ("Colaborador 1", etc.)
+- Textos placeholder para depoimentos
+- Imagem placeholder para fotos
+- Links sociais apontando para "#"
 
-2. **Corrigir dados do Joanderson Lacerda** (aproveitando a mudança):
-   - Cargo: "Professor de Química, Coordenador de Projetos - Hortec, Mentor"
-   - Textos EN/ES: "Under development" / "En desarrollo"
+### 1.4 Criar `src/data/personal.loader.ts` (commitado no Git)
+Modulo que tenta importar `personal.ts`. Se nao existir, usa `personal.defaults.ts` automaticamente.
 
-3. **Adicionar fallback de avatar** para quando a foto estiver vazia:
-   - Mostrar as iniciais do nome em um círculo estilizado
+### 1.5 Atualizar componentes para usar o loader
+- **Hero.tsx** -- foto de perfil vem do loader
+- **Testimonials.tsx** -- array de depoimentos vem do loader
+- **Projects.tsx** -- imagem do Hortec vem do loader
+- **Footer.tsx** -- links sociais vem do loader
 
-4. **Centralizar cards da última linha** quando não preencherem as 3 colunas (5 cards = 3 + 2, os 2 últimos ficam centralizados)
+---
 
-### Arquivo: `src/lib/utils.ts`
-- Remover o array `testimonialsData` duplicado, mantendo apenas a função `cn`
+## Parte 2 -- Remover todas as referencias ao Lovable
+
+### 2.1 `index.html`
+- `<meta name="description">` de "Lovable Generated Project" para "Portfolio Jvn Codes - Desenvolvedor Full Stack"
+- `<meta name="author">` de "Lovable" para "Jvn Codes"
+- `<meta property="og:description">` para "Portfolio Jvn Codes - Desenvolvedor Full Stack"
+- `<meta name="twitter:site">` de "@Lovable" para "@jvncodes"
+- Remover comentarios TODO
+
+### 2.2 `vite.config.ts`
+- Remover `import { componentTagger } from "lovable-tagger"`
+- Simplificar plugins para apenas `plugins: [react()]`
+
+### 2.3 `package.json`
+- Remover `"lovable-tagger"` das devDependencies
+
+### 2.4 `src/components/portfolio/About.tsx`
+- Remover "Lovable" da lista `techStack`
+
+---
+
+## Resumo dos arquivos afetados
+
+| Arquivo | Acao |
+|---------|------|
+| `.gitignore` | Adicionar exclusoes |
+| `src/data/personal.ts` | Criar (ignorado pelo Git) |
+| `src/data/personal.defaults.ts` | Criar (commitado) |
+| `src/data/personal.loader.ts` | Criar (commitado) |
+| `src/components/portfolio/Hero.tsx` | Usar loader para foto |
+| `src/components/portfolio/Testimonials.tsx` | Usar loader para depoimentos |
+| `src/components/portfolio/Projects.tsx` | Usar loader para imagem Hortec |
+| `src/components/portfolio/Footer.tsx` | Usar loader para links sociais |
+| `index.html` | Remover metadados Lovable |
+| `vite.config.ts` | Remover lovable-tagger |
+| `package.json` | Remover lovable-tagger |
+| `src/components/portfolio/About.tsx` | Remover "Lovable" do techStack |
+
+## Resultado final
+
+| Item | No seu PC | No GitHub |
+|------|-----------|-----------|
+| Imagens pessoais | Aparecem normalmente | Nao existem |
+| Nomes e depoimentos | Dados reais | Placeholders genericos |
+| Links sociais | Links reais | Links "#" |
+| Foto de perfil | Sua foto | Placeholder SVG |
+| Referencias ao Lovable | Nenhuma | Nenhuma |
+| Codigo do site | Completo e funcional | Completo e funcional (com placeholders) |
 
