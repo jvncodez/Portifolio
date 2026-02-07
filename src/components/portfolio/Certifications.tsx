@@ -22,12 +22,12 @@ const Certifications = () => {
   const { t } = useLanguage();
 
   const certifications = [
-    { icon: Cloud, category: t.certifications.items[0].category, items: t.certifications.items[0].items, color: 'text-blue-400' },
-    { icon: Code, category: t.certifications.items[1].category, items: t.certifications.items[1].items, color: 'text-yellow-400' },
-    { icon: Bot, category: t.certifications.items[2].category, items: t.certifications.items[2].items, color: 'text-green-400' },
-    { icon: Shield, category: t.certifications.items[3].category, items: t.certifications.items[3].items, color: 'text-red-400' },
-    { icon: Terminal, category: t.certifications.items[4].category, items: t.certifications.items[4].items, color: 'text-purple-400' },
-    { icon: GitBranch, category: t.certifications.items[5].category, items: t.certifications.items[5].items, color: 'text-orange-400' },
+    { id: 'cloud', icon: Cloud, category: t.certifications.items[0].category, items: t.certifications.items[0].items, color: 'text-blue-400' },
+    { id: 'javascript', icon: Code, category: t.certifications.items[1].category, items: t.certifications.items[1].items, color: 'text-yellow-400' },
+    { id: 'automation', icon: Bot, category: t.certifications.items[2].category, items: t.certifications.items[2].items, color: 'text-green-400' },
+    { id: 'cybersecurity', icon: Shield, category: t.certifications.items[3].category, items: t.certifications.items[3].items, color: 'text-red-400' },
+    { id: 'python', icon: Terminal, category: t.certifications.items[4].category, items: t.certifications.items[4].items, color: 'text-purple-400' },
+    { id: 'vcs', icon: GitBranch, category: t.certifications.items[5].category, items: t.certifications.items[5].items, color: 'text-orange-400' },
   ];
 
   return (
@@ -75,7 +75,7 @@ const Certifications = () => {
         >
           {certifications.map((cert) => (
             <motion.div
-              key={cert.category}
+              key={cert.id}
               variants={cardVariants}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="glass-card p-6 glow-hover"
