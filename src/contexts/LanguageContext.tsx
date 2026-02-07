@@ -18,7 +18,7 @@ const translations = {
       subtitlePre: 'Eu me chamo ',
       subtitleName: 'João Silva',
       subtitlePost: ' e não atuo apenas na implementação de funcionalidades eu projeto estruturas resilientes. Atuo projetando arquiteturas seguras, integrando sistemas e organizando fluxos de dados com mentalidade de longo prazo.',
-      cta: 'Contrate',
+      cta: 'Ver Portfólio',
       experience: 'Anos Exp.',
     },
     services: {
@@ -135,7 +135,7 @@ const translations = {
       subtitlePre: 'My name is ',
       subtitleName: 'João Silva',
       subtitlePost: " and I don't just implement features I design resilient structures. I architect secure systems, integrate platforms, and organize data flows with a long-term mindset.",
-      cta: 'Hire Me',
+      cta: 'View Portfolio',
       experience: 'Years Exp.',
     },
     services: {
@@ -252,7 +252,7 @@ const translations = {
       subtitlePre: 'Me llamo ',
       subtitleName: 'João Silva',
       subtitlePost: ' y no solo implemento funcionalidades diseño estructuras resilientes. Diseño arquitecturas seguras, integro sistemas y organizo flujos de datos con mentalidad a largo plazo.',
-      cta: 'Contrátame',
+      cta: 'Ver Portafolio',
       experience: 'Años Exp.',
     },
     services: {
