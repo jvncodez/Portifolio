@@ -40,8 +40,9 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-8">
-            {/* Badge */}
-            <motion.div
+            {/* Badge - Disponível para novos projetos
+               Descomente o bloco abaixo para exibir o badge novamente */}
+            {/* <motion.div
               custom={0}
               initial="hidden"
               animate="visible"
@@ -54,7 +55,7 @@ const Hero = () => {
               <span className="text-sm font-medium text-primary">
                 {t.hero.badge}
               </span>
-            </motion.div>
+            </motion.div> */}
 
             {/* Title */}
             <motion.h1
