@@ -87,7 +87,7 @@ const Hero = () => {
               animate="visible"
               variants={textVariants}
             >
-              <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 15 }}>
+              <motion.div whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 15 }}>
                 <a
                   href="#projects"
                   className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-primary-foreground overflow-hidden transition-all duration-300"
