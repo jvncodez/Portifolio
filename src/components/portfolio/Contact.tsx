@@ -16,26 +16,13 @@ const Contact = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const contactSchema = z.object({
-    name: z
-      .string()
-      .trim()
-      .min(1, {
-        message: lang === "pt" ? "Nome é obrigatório" : lang === "es" ? "Nombre es obligatorio" : "Name is required",
-      })
-      .max(100),
-    email: z
-      .string()
-      .trim()
-      .email({ message: lang === "pt" ? "E-mail inválido" : lang === "es" ? "Correo inválido" : "Invalid email" })
-      .max(255),
-    message: z
-      .string()
-      .trim()
-      .min(1, {
-        message:
-          lang === "pt" ? "Mensagem é obrigatória" : lang === "es" ? "Mensaje es obligatorio" : "Message is required",
-      })
-      .max(1000),
+    name: z.string().trim().min(1, {
+      message: lang === "pt" ? "Nome é obrigatório" : lang === "es" ? "Nombre es obligatorio" : "Name is required",
+    }).max(100),
+    email: z.string().trim().email({ message: lang === "pt" ? "E-mail inválido" : lang === "es" ? "Correo inválido" : "Invalid email" }).max(255),
+    message: z.string().trim().min(1, {
+      message: lang === "pt" ? "Mensagem é obrigatória" : lang === "es" ? "Mensaje es obligatorio" : "Message is required",
+    }).max(1000),
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,12 +31,7 @@ const Contact = () => {
 
     if (!agreed) {
       setErrors({
-        terms:
-          lang === "pt"
-            ? "Você precisa aceitar os termos"
-            : lang === "es"
-              ? "Debes aceptar los términos"
-              : "You must accept the terms",
+        terms: lang === "pt" ? "Você precisa aceitar os termos" : lang === "es" ? "Debes aceptar los términos" : "You must accept the terms",
       });
       return;
     }
@@ -74,13 +56,9 @@ const Contact = () => {
       return;
     }
 
-    // Build WhatsApp message
     const whatsappMessage = `Olá, me chamo ${encodeURIComponent(data.name)}, meu email é o ${encodeURIComponent(data.email)} estou entrando em contato devido ${encodeURIComponent(data.message)}`;
     const whatsappUrl = `https://wa.me/+5581981123549?text=${whatsappMessage}`;
-    
-    // Open WhatsApp in new tab
     window.open(whatsappUrl, '_blank');
-    
     (e.target as HTMLFormElement).reset();
     setAgreed(false);
   };
@@ -89,40 +67,25 @@ const Contact = () => {
     pt: (
       <>
         Li e concordo com a{" "}
-        <Link to="/privacy" className="text-primary hover:underline">
-          Política de Privacidade
-        </Link>{" "}
+        <Link to="/privacy" className="text-primary hover:underline">Política de Privacidade</Link>{" "}
         e{" "}
-        <Link to="/terms" className="text-primary hover:underline">
-          Termos de Serviço
-        </Link>
-        .
+        <Link to="/terms" className="text-primary hover:underline">Termos de Serviço</Link>.
       </>
     ),
     en: (
       <>
         I have read and agree to the{" "}
-        <Link to="/privacy" className="text-primary hover:underline">
-          Privacy Policy
-        </Link>{" "}
+        <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>{" "}
         and{" "}
-        <Link to="/terms" className="text-primary hover:underline">
-          Terms of Service
-        </Link>
-        .
+        <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link>.
       </>
     ),
     es: (
       <>
         He leído y acepto la{" "}
-        <Link to="/privacy" className="text-primary hover:underline">
-          Política de Privacidad
-        </Link>{" "}
+        <Link to="/privacy" className="text-primary hover:underline">Política de Privacidad</Link>{" "}
         y los{" "}
-        <Link to="/terms" className="text-primary hover:underline">
-          Términos de Servicio
-        </Link>
-        .
+        <Link to="/terms" className="text-primary hover:underline">Términos de Servicio</Link>.
       </>
     ),
   };
@@ -157,7 +120,7 @@ const Contact = () => {
             className="space-y-8"
           >
             {/* Workspace Image */}
-            <div className="rounded-3xl overflow-hidden">
+            <div className="rounded-3xl overflow-hidden glass-border glow-primary">
               <img
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
                 alt="Workspace"
@@ -174,9 +137,9 @@ const Contact = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border"
+                  className="glass-card p-4 flex items-center gap-4"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
@@ -190,14 +153,14 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6 glow-primary">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium">{t.hire.form.name}</label>
                   <Input
                     name="name"
                     placeholder={t.hire.form.name}
-                    className={`h-12 ${errors.name ? "border-destructive" : ""}`}
+                    className={`h-12 glass-input ${errors.name ? "border-destructive" : ""}`}
                     required
                   />
                   {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
@@ -208,7 +171,7 @@ const Contact = () => {
                     name="email"
                     type="email"
                     placeholder={t.hire.form.email}
-                    className={`h-12 ${errors.email ? "border-destructive" : ""}`}
+                    className={`h-12 glass-input ${errors.email ? "border-destructive" : ""}`}
                     required
                   />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
@@ -220,7 +183,7 @@ const Contact = () => {
                 <Textarea
                   name="message"
                   placeholder={t.hire.form.message}
-                  className={`min-h-32 resize-none ${errors.message ? "border-destructive" : ""}`}
+                  className={`min-h-32 resize-none glass-input ${errors.message ? "border-destructive" : ""}`}
                   required
                 />
                 {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
@@ -242,7 +205,7 @@ const Contact = () => {
                 {errors.terms && <p className="text-sm text-destructive">{errors.terms}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full gap-2">
+              <Button type="submit" size="lg" className="w-full gap-2 glass-btn text-primary-foreground rounded-xl">
                 {t.hire.form.send}
                 <Send className="w-4 h-4" />
               </Button>
@@ -260,7 +223,7 @@ const Contact = () => {
             exit={{ opacity: 0, y: 50 }}
             className="fixed bottom-6 right-6 z-50"
           >
-            <div className="flex items-center gap-3 px-6 py-4 bg-primary text-primary-foreground rounded-xl shadow-xl">
+            <div className="flex items-center gap-3 px-6 py-4 glass-strong glass-border text-primary rounded-xl shadow-xl glow-primary">
               <CheckCircle2 className="w-5 h-5" />
               <span className="font-medium">{t.hire.form.success}</span>
             </div>

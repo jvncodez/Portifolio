@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
@@ -102,7 +102,7 @@ const Projects = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               onClick={() => setSelectedProject(project)}
-              className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer border border-border/50"
+              className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer glass-border glow-hover"
             >
               {/* Image */}
               <img
@@ -111,18 +111,20 @@ const Projects = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+              {/* Glass Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent backdrop-blur-[2px]" />
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <p className="text-sm text-primary font-medium mb-2">
-                  {project.category[lang]}
-                </p>
-                <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                <div className="flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span>{t.projects.viewDetails}</span>
-                  <ExternalLink className="w-4 h-4" />
+                <div className="glass-strong glass-border rounded-xl p-4">
+                  <p className="text-sm text-primary font-medium mb-1">
+                    {project.category[lang]}
+                  </p>
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <div className="flex items-center gap-2 text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>{t.projects.viewDetails}</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -132,7 +134,7 @@ const Projects = () => {
 
       {/* Project Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl glass-strong border-white/10">
           {selectedProject && (
             <>
               <DialogHeader>
@@ -147,7 +149,6 @@ const Projects = () => {
               </DialogHeader>
 
               <div className="space-y-6">
-                {/* Image */}
                 <div className="rounded-xl overflow-hidden">
                   <img
                     src={selectedProject.image}
@@ -156,28 +157,25 @@ const Projects = () => {
                   />
                 </div>
 
-                {/* Goal */}
-                <div>
+                <div className="glass-card p-4">
                   <h4 className="font-semibold mb-2">{t.projects.modal.goal}</h4>
                   <p className="text-muted-foreground">
                     {selectedProject.goal[lang]}
                   </p>
                 </div>
 
-                {/* Solution */}
-                <div>
+                <div className="glass-card p-4">
                   <h4 className="font-semibold mb-2">{t.projects.modal.solution}</h4>
                   <p className="text-muted-foreground">
                     {selectedProject.solution[lang]}
                   </p>
                 </div>
 
-                {/* Stack */}
                 <div>
                   <h4 className="font-semibold mb-2">{t.projects.modal.stack}</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.stack.map((tech) => (
-                      <Badge key={tech} variant="secondary">
+                      <Badge key={tech} className="glass-badge text-primary border-primary/20">
                         {tech}
                       </Badge>
                     ))}

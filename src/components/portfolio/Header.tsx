@@ -32,8 +32,8 @@ const Header = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'glass glass-border shadow-lg' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? 'glass-strong glass-border shadow-lg' : 'bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6 py-4">
@@ -60,15 +60,15 @@ const Header = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-4">
-              {/* Language Selector */}
-              <div className="hidden sm:flex items-center gap-1 bg-secondary/50 rounded-full p-1">
+              {/* Language Selector - glass */}
+              <div className="hidden sm:flex items-center gap-1 glass glass-border rounded-full p-1">
                 {languages.map((l) => (
                   <button
                     key={l}
                     onClick={() => setLang(l)}
                     className={`px-2.5 py-1 rounded-full text-xs uppercase font-bold transition-all ${
                       lang === l
-                        ? 'bg-primary text-primary-foreground shadow-lg'
+                        ? 'glass-btn text-primary-foreground shadow-lg'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
@@ -77,10 +77,10 @@ const Header = () => {
                 ))}
               </div>
 
-              {/* Theme Toggle */}
+              {/* Theme Toggle - glass */}
               <button
                 onClick={toggleTheme}
-                className="p-2 rounded-full hover:bg-secondary transition-colors"
+                className="p-2 rounded-full glass glass-border hover:border-primary/30 transition-all duration-300"
                 aria-label="Toggle theme"
               >
                 {isDark ? (
@@ -93,7 +93,7 @@ const Header = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 rounded-full hover:bg-secondary transition-colors"
+                className="lg:hidden p-2 rounded-full glass glass-border hover:border-primary/30 transition-all duration-300"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
@@ -117,7 +117,7 @@ const Header = () => {
             transition={{ type: 'spring', damping: 25 }}
             className="fixed inset-0 z-40 lg:hidden"
           >
-            <div className="absolute inset-0 bg-background/95 backdrop-blur-xl" />
+            <div className="absolute inset-0 glass-strong" />
             <nav className="relative h-full flex flex-col items-center justify-center gap-8">
               {navItems.map((item, i) => (
                 <motion.a
@@ -144,8 +144,8 @@ const Header = () => {
                     }}
                     className={`px-4 py-2 rounded-full text-sm uppercase font-bold transition-all ${
                       lang === l
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-secondary text-muted-foreground'
+                        ? 'glass-btn text-primary-foreground'
+                        : 'glass glass-border text-muted-foreground'
                     }`}
                   >
                     {l}
