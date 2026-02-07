@@ -140,7 +140,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 className="absolute -bottom-4 -right-4 glass-strong glass-border rounded-2xl p-4 shadow-xl animate-glow-pulse cursor-default"
               >
-                <div className="text-3xl font-bold text-primary">5+</div>
+                <div className="text-3xl font-bold text-foreground">5+</div>
                 <div className="text-sm text-muted-foreground">{t.hero.experience}</div>
               </motion.div>
 
