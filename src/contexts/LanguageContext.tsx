@@ -18,7 +18,7 @@ const translations = {
       subtitlePre: "Eu me chamo ",
       subtitleName: "João Silva",
       subtitlePost:
-        " e não atuo apenas na implementação de funcionalidades. eu projeto estruturas resilientes. Atuo projetando arquiteturas seguras, integrando sistemas e organizando fluxos de dados com mentalidade de longo prazo.",
+        " e não atuo apenas na implementação de funcionalidades. Eu projeto estruturas resilientes. Atuo projetando arquiteturas seguras, integrando sistemas e organizando fluxos de dados com mentalidade de longo prazo.",
       cta: "Ver Portfólio",
       experience: "Anos Exp.",
     },
