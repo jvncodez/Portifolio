@@ -87,7 +87,7 @@ const Hero = () => {
               animate="visible"
               variants={textVariants}
             >
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 15 }}>
                 <a
                   href="#projects"
                   className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-primary-foreground overflow-hidden transition-all duration-300"
@@ -101,7 +101,7 @@ const Hero = () => {
                   {/* Border glow */}
                   <span className="absolute inset-0 rounded-2xl border border-white/20 group-hover:border-white/40 transition-colors" />
                   <span className="relative z-10">{t.hero.cta}</span>
-                  <ArrowRight className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  <ArrowRight className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </motion.div>
             </motion.div>
