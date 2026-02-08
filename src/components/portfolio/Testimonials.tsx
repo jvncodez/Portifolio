@@ -13,7 +13,7 @@ const testimonialsData = [
       en: "João's work on neural networks demonstrates deep understanding. His projects deliver robust solutions.",
       es: "El trabajo de João en redes neuronales demuestra un entendimiento profundo. Sus proyectos entregan soluciones robustas.",
     },
-    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
+    photo: "/images/img-arthurmuniz.jpeg",
   },
   {
     name: "Eisangela Rocha",
