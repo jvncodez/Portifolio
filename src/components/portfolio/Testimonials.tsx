@@ -53,7 +53,7 @@ const testimonialsData = [
       en: "I had the opportunity to work with João Victor and I can affirm that he is an extremely committed, responsible, and dedicated professional. He demonstrates a great sense of responsibility, consistently meets deadlines, and maintains a high standard of quality in his deliverables.",
       es: "Tuve la oportunidad de trabajar con João Victor y puedo afirmar que es un profesional sumamente comprometido, responsable y dedicado. Demuestra un gran sentido de la responsabilidad, cumple con los plazos con constancia y mantiene un alto nivel de calidad en sus entregas.",
     },
-    photo: "/images/img-julio.jpeg",
+    photo: "/images/img-mariva.jpeg",
   },
   {
     name: "Joanderson Lacerda",
