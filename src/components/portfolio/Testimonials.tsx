@@ -1,11 +1,71 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { personalData } from "@/data/personal.loader";
 
 const easeOut = [0.25, 0.4, 0.25, 1] as const;
 
-const testimonialsData = personalData.testimonials;
+const testimonialsData = [
+  {
+    name: "Arthur Muniz",
+    role: "CEO Ventturehealth",
+    text: {
+      pt: "O trabalho de João em redes neurais demonstra um entendimento profundo. Seus projetos entregam soluções robustas.",
+      en: "João's work on neural networks demonstrates deep understanding. His projects deliver robust solutions.",
+      es: "El trabajo de João en redes neuronales demuestra un entendimiento profundo. Sus proyectos entregan soluciones robustas.",
+    },
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200",
+  },
+  {
+    name: "Eisangela Rocha",
+    role: "Analista de Ti - Samoa Resorts",
+    text: {
+      pt: "Gostaria de registrar nosso reconhecimento e agradecimento ao João por todo o trabalho realizado no setor de TI. Durante o período em que esteve conosco, demonstrou comprometimento, profissionalismo e muita disposição para colaborar com o time, sempre buscando soluções e contribuindo para a melhoria contínua dos processos.",
+      en: "I would like to express our recognition and gratitude to João for all the work done in the IT department. During his time with us, he demonstrated commitment, professionalism, and great willingness to collaborate with the team, always seeking solutions and contributing to the continuous improvement of processes.",
+      es: "Me gustaría registrar nuestro reconocimiento y agradecimiento a João por todo el trabajo realizado en el sector de TI. Durante el período en que estuvo con nosotros, demostró compromiso, profesionalismo y mucha disposición para colaborar con el equipo, siempre buscando soluciones y contribuyendo a la mejora continua de los procesos.",
+    },
+    photo: "/images/img-elis.jpeg",
+  },
+  {
+    name: "Rodrigo Silva",
+    role: "Comercial Ventturehealth",
+    text: {
+      pt: "É uma satisfação fechar projetos de desenvolvimento para a Ventture, com a confiança que João entregará resultados de excelência.",
+      en: "As a sales professional, it is a pleasure to close development projects for Ventture, with the confidence that João and his team will deliver excellent results.",
+      es: "Como comercial, es una satisfacción cerrar proyectos de desarrollo para Ventture, con la confianza de que João y su equipo entregarán resultados de excelencia.",
+    },
+    photo: "/images/testimonial-ava.jpg",
+  },
+  {
+    name: "Júlio César",
+    role: "Desenvolvedor de Sistemas",
+    text: {
+      pt: "Ele se destaca pela sua persistência, constância e seus conhecimentos em Cloud e IA",
+      en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
+      es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
+    },
+    photo: "/images/img-julio.jpeg",
+  },
+  {
+    name: "Marivaldo Pedro",
+    role: "Analista e desenvolvedor de Sistemas - Integrante da Hortec 2023",
+    text: {
+      pt: "Tive a oportunidade de trabalhar com João Victor e posso afirmar que ele é um profissional extremamente comprometido, responsável e dedicado ao que faz. Demonstra grande senso de responsabilidade, cumpre prazos com consistência e mantém um alto padrão de qualidade em suas entregas.",
+      en: "I had the opportunity to work with João Victor and I can affirm that he is an extremely committed, responsible, and dedicated professional. He demonstrates a great sense of responsibility, consistently meets deadlines, and maintains a high standard of quality in his deliverables.",
+      es: "Tuve la oportunidad de trabajar con João Victor y puedo afirmar que es un profesional sumamente comprometido, responsable y dedicado. Demuestra un gran sentido de la responsabilidad, cumple con los plazos con constancia y mantiene un alto nivel de calidad en sus entregas.",
+    },
+    photo: "/images/img-julio.jpeg",
+  },
+  {
+    name: "Joanderson Lacerda",
+    role: "Professor de Quimica,Coordenador de projetos no periodo da Hortec",
+    text: {
+      pt: "Em desenvolvimento",
+      en: "Under development",
+      es: "En desarrollo",
+    },
+    photo: "",
+  },
+];
 
 const getInitials = (name: string) =>
   name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
