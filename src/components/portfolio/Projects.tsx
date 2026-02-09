@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import venttureImg from '@/assets/ventture-logo.png';
+import saymedImg from '@/assets/saymed-logo.png';
 import { personalData } from '@/data/personal.loader';
 
 const projectsData = [
@@ -29,7 +30,8 @@ const projectsData = [
     id: 2,
     title: 'SayMed',
     category: { pt: 'Gestão para Clínicas Odontológicas', en: 'Dental Clinic Management', es: 'Gestión de Clínicas Odontológicas' },
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
+    image: saymedImg,
+    isLogo: true,
     goal: { 
       pt: 'Desenvolver um sistema completo de gestão para clínicas odontológicas com arquitetura robusta e integrações modernas.', 
       en: 'Develop a complete management system for dental clinics with robust architecture and modern integrations.', 
@@ -47,6 +49,7 @@ const projectsData = [
     title: 'VenttureHealth',
     category: { pt: 'Startup de Soluções Médicas', en: 'Healthcare Solutions Startup', es: 'Startup de Soluciones Médicas' },
     image: venttureImg,
+    isLogo: true,
     goal: { 
       pt: 'Desenvolver soluções digitais inovadoras para a área da medicina, focando em automações e arquitetura escalável.', 
       en: 'Develop innovative digital solutions for the medical field, focusing on automation and scalable architecture.', 
@@ -107,11 +110,13 @@ const Projects = () => {
               className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer glass-border glow-hover"
             >
               {/* Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+              <div className={`absolute inset-0 ${('isLogo' in project && project.isLogo) ? 'bg-white flex items-center justify-center p-12' : ''}`}>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={`${('isLogo' in project && project.isLogo) ? 'w-full h-full object-contain' : 'absolute inset-0 w-full h-full object-cover'} transition-transform duration-500 group-hover:scale-110`}
+                />
+              </div>
 
               {/* Glass Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent backdrop-blur-[2px]" />
@@ -146,11 +151,13 @@ const Projects = () => {
             }}>
               {/* Header image with gradient fade */}
               <div className="relative h-52 overflow-hidden">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
+                <div className={`w-full h-full ${(selectedProject as any).isLogo ? 'bg-white flex items-center justify-center p-8' : ''}`}>
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className={`${(selectedProject as any).isLogo ? 'w-full h-full object-contain' : 'w-full h-full object-cover'}`}
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/30 to-transparent" />
                 <div className="absolute bottom-4 left-6 right-6 z-10">
                   <p className="text-sm text-primary font-medium mb-1">
