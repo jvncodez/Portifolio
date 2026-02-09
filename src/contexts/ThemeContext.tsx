@@ -14,15 +14,15 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       // One-time migration to set light as default
-      const migrated = localStorage.getItem('theme-migrated-v1');
+      const migrated = localStorage.getItem('theme-migrated-v2');
       if (!migrated) {
         localStorage.removeItem('theme');
-        localStorage.setItem('theme-migrated-v1', 'true');
-        return 'light';
+        localStorage.setItem('theme-migrated-v2', 'true');
+        return 'dark';
       }
-      return (localStorage.getItem('theme') as Theme) || 'light';
+      return (localStorage.getItem('theme') as Theme) || 'dark';
     }
-    return 'light';
+    return 'dark';
   });
 
   const isDark = theme === 'dark';
@@ -38,7 +38,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (!savedTheme) {
-      document.documentElement.classList.add('light');
+      document.documentElement.classList.add('dark');
     }
   }, []);
 
