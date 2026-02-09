@@ -26,6 +26,16 @@ const testimonialsData = [
     photo: "/images/img-elis.jpeg",
   },
   {
+    name: "Marivaldo Pedro",
+    role: "Analista e desenvolvedor de Sistemas - Integrante da Hortec 2023",
+    text: {
+      pt: "Tive a oportunidade de trabalhar com João Victor e posso afirmar que ele é um profissional extremamente comprometido, responsável e dedicado ao que faz. Demonstra grande senso de responsabilidade, cumpre prazos com consistência e mantém um alto padrão de qualidade em suas entregas.",
+      en: "I had the opportunity to work with João Victor and I can affirm that he is an extremely committed, responsible, and dedicated professional. He demonstrates a great sense of responsibility, consistently meets deadlines, and maintains a high standard of quality in his deliverables.",
+      es: "Tuve la oportunidad de trabajar con João Victor y puedo afirmar que es un profesional sumamente comprometido, responsable y dedicado. Demuestra un gran sentido de la responsabilidad, cumple con los plazos con constancia y mantiene un alto nivel de calidad en sus entregas.",
+    },
+    photo: "/images/img-mariva.jpeg",
+  },
+  {
     name: "Rodrigo Silva",
     role: "Comercial Ventturehealth",
     text: {
@@ -44,16 +54,6 @@ const testimonialsData = [
       es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
     },
     photo: "/images/img-julio.jpeg",
-  },
-  {
-    name: "Marivaldo Pedro",
-    role: "Analista e desenvolvedor de Sistemas - Integrante da Hortec 2023",
-    text: {
-      pt: "Tive a oportunidade de trabalhar com João Victor e posso afirmar que ele é um profissional extremamente comprometido, responsável e dedicado ao que faz. Demonstra grande senso de responsabilidade, cumpre prazos com consistência e mantém um alto padrão de qualidade em suas entregas.",
-      en: "I had the opportunity to work with João Victor and I can affirm that he is an extremely committed, responsible, and dedicated professional. He demonstrates a great sense of responsibility, consistently meets deadlines, and maintains a high standard of quality in his deliverables.",
-      es: "Tuve la oportunidad de trabajar con João Victor y puedo afirmar que es un profesional sumamente comprometido, responsable y dedicado. Demuestra un gran sentido de la responsabilidad, cumple con los plazos con constancia y mantiene un alto nivel de calidad en sus entregas.",
-    },
-    photo: "/images/img-mariva.jpeg",
   },
   {
     name: "Joanderson Lacerda",
