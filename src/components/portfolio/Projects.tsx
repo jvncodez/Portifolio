@@ -156,11 +156,21 @@ const Projects = () => {
             }}>
               {/* Header image with gradient fade */}
               <div className="relative h-52 overflow-hidden">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
+                {selectedProject.id === 3 ? (
+                  <div className="w-full h-full bg-white flex items-center justify-center">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-2/5 h-2/5 object-contain"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/30 to-transparent" />
                 <div className="absolute bottom-4 left-6 right-6 z-10">
                   <p className="text-sm text-primary font-medium mb-1">
