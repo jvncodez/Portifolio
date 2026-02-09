@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
+import venttureImg from '@/assets/ventture-logo.png';
 import { personalData } from '@/data/personal.loader';
 
 const projectsData = [
@@ -45,7 +46,7 @@ const projectsData = [
     id: 3,
     title: 'VenttureHealth',
     category: { pt: 'Startup de Soluções Médicas', en: 'Healthcare Solutions Startup', es: 'Startup de Soluciones Médicas' },
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800',
+    image: venttureImg,
     goal: { 
       pt: 'Desenvolver soluções digitais inovadoras para a área da medicina, focando em automações e arquitetura escalável.', 
       en: 'Develop innovative digital solutions for the medical field, focusing on automation and scalable architecture.', 
