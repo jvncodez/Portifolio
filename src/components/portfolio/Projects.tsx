@@ -107,11 +107,21 @@ const Projects = () => {
               className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer glass-border glow-hover"
             >
               {/* Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+              {project.id === 3 ? (
+                <div className="absolute inset-0 w-full h-full bg-white flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-3/5 h-3/5 object-contain"
+                  />
+                </div>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              )}
 
               {/* Glass Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent backdrop-blur-[2px]" />
