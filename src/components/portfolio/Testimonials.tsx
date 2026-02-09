@@ -145,7 +145,7 @@ const Testimonials = () => {
               whileHover={{ y: -10, scale: 1.02, transition: { duration: 0.3 } }}
               className="group relative w-full md:w-[calc(33.333%-1rem)]"
             >
-              <div className="relative h-full glass-card p-8 glow-hover">
+              <div className="relative h-full glass-card p-8 glow-hover flex flex-col">
                 {/* Quote icon with animation */}
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
@@ -175,7 +175,7 @@ const Testimonials = () => {
                 </div>
 
                 {/* Quote text */}
-                <p className="text-muted-foreground leading-relaxed mb-6 text-[15px]">
+                <p className="text-muted-foreground leading-relaxed mb-6 text-[15px] flex-1">
                   "{testimonial.text[lang]}"
                 </p>
 
