@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
+# 🚀 João Silva — Portfolio
 
-## Project info
+Este repositório contém o código do meu portfólio profissional.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Mais do que uma apresentação visual, este projeto representa minha forma de pensar sistemas: arquitetura como estrutura, segurança como fundação e escalabilidade como planejamento.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🎯 Posicionamento
 
-**Use Lovable**
+Sou **Coordenador de Desenvolvimento e Operação**, com foco em:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Arquitetura de Software  
+- Backend Engineering  
+- CyberSecurity aplicada desde o design  
+- Construção de soluções SaaS escaláveis  
 
-Changes made via Lovable will be committed automatically to this repo.
+Minha atuação vai além da implementação de funcionalidades.  
+Eu projeto estruturas resilientes.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧠 Sobre o Projeto
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Este portfólio foi construído com a mesma mentalidade que aplico em projetos reais:
 
-Follow these steps:
+- Organização modular  
+- Estrutura bem definida  
+- Experiência controlada e intencional  
+- Performance e clareza  
+- Segurança conceitual desde a base  
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+A experiência visual (glass futurista, transições cinematográficas, interações reativas e elementos 3D) não é apenas estética — ela representa controle estrutural e precisão técnica.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- React + Vite + TypeScript  
+- TailwindCSS  
+- Framer Motion  
+- Canvas 2D  
+- Sistema de idiomas (PT / EN / ES)  
+- Tema Dia / Noite com persistência  
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 💻 Competências Técnicas
 
-**Use GitHub Codespaces**
+- Python  
+- TypeScript  
+- JavaScript  
+- Node.js  
+- React  
+- MySQL  
+- Supabase  
+- Docker  
+- n8n  
+- AWS (formação AWS Academy)  
+- Análise de vulnerabilidades e Pentest  
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🧭 Filosofia Técnica
 
-This project is built with:
+> Sistemas não devem apenas funcionar — devem resistir.  
+> Arquitetura é estrutura.  
+> Segurança é fundação.  
+> Escalabilidade é planejamento.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 📫 Contato
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Se você chegou até aqui através do meu portfólio e deseja conversar sobre projetos, arquitetura ou colaboração:
 
-## Can I connect a custom domain to my Lovable project?
+📲 WhatsApp  
+https://wa.me/5581981123549  
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+GitHub: **@jvncodes**  
+Startup: **@ventturehealth**
