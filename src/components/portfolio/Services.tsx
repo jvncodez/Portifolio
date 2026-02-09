@@ -3,22 +3,15 @@ import { Code2, ShieldCheck, Cloud, Zap, Database, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const serviceIcons = [Code2, ShieldCheck, Cloud, Zap, Database, Globe];
-const easeOut = [0.25, 0.4, 0.25, 1] as const;
+
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12 },
-  },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: easeOut },
-  },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const Services = () => {
@@ -26,40 +19,20 @@ const Services = () => {
 
   return (
     <section id="services" className="py-24 relative overflow-hidden">
-      {/* Animated background */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] border border-primary/5 rounded-full pointer-events-none"
-      />
+      {/* CSS decorative circle */}
+      <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] border border-primary/5 rounded-full pointer-events-none animate-rotate-slow" style={{ animationDuration: '60s' }} />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            {t.services.title}
-          </motion.h2>
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: 96 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="h-1 bg-primary mx-auto rounded-full"
-          />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.services.title}</h2>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        {/* Services Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -70,15 +43,9 @@ const Services = () => {
           {t.services.items.map((service, i) => {
             const Icon = serviceIcons[i];
             return (
-              <motion.div
-                key={i}
-                variants={cardVariants}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              >
-                <div className="glass-card h-full p-6 group glow-hover">
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
+              <motion.div key={i} variants={cardVariants}>
+                <div className="glass-card h-full p-6 group glow-hover hover:-translate-y-2 transition-transform duration-300">
+                  <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.4)]"
                     style={{
                       background: 'linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--primary) / 0.05))',
@@ -86,7 +53,7 @@ const Services = () => {
                     }}
                   >
                     <Icon className="w-6 h-6 text-primary" />
-                  </motion.div>
+                  </div>
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                   <p className="text-muted-foreground">{service.desc}</p>
                 </div>
