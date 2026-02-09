@@ -9,9 +9,9 @@ const testimonialsData = [
     name: "Arthur Muniz",
     role: "CEO Ventturehealth",
     text: {
-      pt: "Trabalho com o João há algum tempo e posso afirmar que ele é um profissional extremamente competente e comprometido. Seu conhecimento em redes neurais, inteligência artificial e segurança da informação demonstra profundidade técnica e visão estratégica. Ele entrega soluções robustas, bem estruturadas e com agilidade, sempre mantendo a qualidade.",
-      en: "I have been working with João for some time and I can affirm that he is an extremely competent and committed professional. His knowledge in neural networks, artificial intelligence, and information security demonstrates technical depth and strategic vision. He delivers robust, well-structured solutions with agility, always maintaining quality.",
-      es: "Trabajo con João hace algún tiempo y puedo afirmar que es un profesional sumamente competente y comprometido. Su conocimiento en redes neuronales, inteligencia artificial y seguridad de la información demuestra profundidad técnica y visión estratégica. Entrega soluciones robustas, bien estructuradas y con agilidad, siempre manteniendo la calidad.",
+      pt: "Trabalho com o João há algum tempo e posso afirmar que ele é um profissional extremamente competente e comprometido. Seu conhecimento em redes, inteligência artificial e segurança da informação demonstra profundidade técnica e visão estratégica. Ele entrega soluções robustas, bem estruturadas e com agilidade, sempre mantendo a qualidade.",
+      en: "I have been working with João for some time and I can affirm that he is an extremely competent and committed professional. His knowledge in networking, artificial intelligence, and information security demonstrates technical depth and strategic vision. He delivers robust, well-structured solutions with agility, always maintaining quality.",
+      es: "Trabajo con João hace algún tiempo y puedo afirmar que es un profesional sumamente competente y comprometido. Su conocimiento en redes, inteligencia artificial y seguridad de la información demuestra profundidad técnica y visión estratégica. Entrega soluciones robustas, bien estructuradas y con agilidad, siempre manteniendo la calidad.",
     },
     photo: "/images/img-arthurmuniz.jpeg",
   },
