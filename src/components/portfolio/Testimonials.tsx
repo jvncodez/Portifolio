@@ -186,18 +186,20 @@ const Testimonials = () => {
                     transition={{ type: "spring", stiffness: 300 }}
                     className="relative"
                   >
-                    {testimonial.photo ? (
-                      <img
-                        src={testimonial.photo}
-                        loading="lazy"
-                        alt={testimonial.name}
-                        className="w-12 h-12 aspect-square rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
-                      />
-                    ) : (
-                      <div className="w-12 h-12 rounded-full glass-badge flex items-center justify-center text-primary font-bold text-sm">
-                        {getInitials(testimonial.name)}
-                      </div>
-                    )}
+                    <div className="w-12 h-12 shrink-0 rounded-full overflow-hidden ring-2 ring-primary/20 ring-offset-2 ring-offset-background">
+                      {testimonial.photo ? (
+                        <img
+                          src={testimonial.photo}
+                          loading="lazy"
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full glass-badge flex items-center justify-center text-primary font-bold text-sm">
+                          {getInitials(testimonial.name)}
+                        </div>
+                      )}
+                    </div>
                   </motion.div>
                   <div>
                     <p className="font-semibold text-sm text-foreground">{testimonial.name}</p>
