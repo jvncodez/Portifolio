@@ -1,7 +1,7 @@
 import hortecBg from '@/assets/hortec-bg.jpg';
 
 export const personalData = {
-  profilePhoto: "/lovable-uploads/fc6c684b-f9e3-49e2-985f-78d3ac366989.png",
+  profilePhoto: "/jvn-uploads/fc6c684b-f9e3-49e2-985f-78d3ac366989.png",
   socialLinks: {
     github: "https://github.com/jvncodez",
     linkedin: "https://www.linkedin.com/in/jo%C3%A3o-silva-2536922aa",
