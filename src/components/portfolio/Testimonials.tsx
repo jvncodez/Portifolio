@@ -49,9 +49,9 @@ const testimonialsData = [
     name: "Júlio César",
     role: "Desenvolvedor de Sistemas",
     text: {
-      pt: "Ele se destaca pela sua persistência, constância e seus conhecimentos em Cloud e IA",
-      en: "He stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
-      es: "Se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
+      pt: "Conheço o João a um bom tempo, ele se destaca pela sua persistência, constância e seus conhecimentos em Cloud e IA.",
+      en: "I've known João for a long time, he stands out for his persistence, consistency, and his knowledge in Cloud and AI.",
+      es: "Conozco a João desde hace un buen tiempo, se destaca por su persistencia, constancia y sus conocimientos en Cloud e IA.",
     },
     photo: "/images/img-julio.jpeg",
   },
