@@ -189,8 +189,9 @@ const Testimonials = () => {
                     {testimonial.photo ? (
                       <img
                         src={testimonial.photo}
+                        loading="lazy"
                         alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
+                        className="w-12 h-12 aspect-square rounded-full object-cover ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
                       />
                     ) : (
                       <div className="w-12 h-12 rounded-full glass-badge flex items-center justify-center text-primary font-bold text-sm">
