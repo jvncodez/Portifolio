@@ -56,14 +56,14 @@ const testimonialsData = [
     photo: "/images/img-julio.jpeg",
   },
   {
-    name: "Joanderson Lacerda",
-    role: "Professor de Quimica,Coordenador de projetos no periodo da Hortec",
+    name: "Luiz Carlos",
+    role: "Mídia Audiovisual",
     text: {
-      pt: "Em desenvolvimento",
-      en: "Under development",
-      es: "En desarrollo",
+      pt: "Sou um grande amigo de João e posso afirmar que ele é um profissional dedicado e com foco em solucionar problemas, com voz ativa e resolutivo.",
+      en: "I am a close friend of João and I can affirm that he is a dedicated professional focused on solving problems, with an active voice and resolution-driven.",
+      es: "Soy un gran amigo de João y puedo afirmar que es un profesional dedicado y enfocado en solucionar problemas, con voz activa y resolutivo.",
     },
-    photo: "",
+    photo: "/images/img-luiz-carlos.jpeg",
   },
 ];
 
