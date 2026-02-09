@@ -155,3 +155,27 @@
 .dark .glass-card:hover {
   @apply shadow-[0_8px_32px_0_hsl(var(--primary)/0.2)];
 }
+
+/* Performance: CSS-only particle animation */
+@keyframes particle-drift {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+  25% { transform: translateY(-15px) translateX(8px); opacity: 0.5; }
+  50% { transform: translateY(-25px) translateX(-5px); opacity: 0.6; }
+  75% { transform: translateY(-10px) translateX(10px); opacity: 0.3; }
+}
+
+.animate-particle {
+  animation: particle-drift 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Performance: CSS scanning line */
+@keyframes scan-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.animate-scan-line {
+  animation: scan-line 4s linear infinite;
+  will-change: transform;
+}

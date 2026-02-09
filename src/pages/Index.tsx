@@ -1,13 +1,22 @@
+import { lazy, Suspense } from 'react';
 import Header from '@/components/portfolio/Header';
 import Hero from '@/components/portfolio/Hero';
-import Services from '@/components/portfolio/Services';
-import About from '@/components/portfolio/About';
-import Certifications from '@/components/portfolio/Certifications';
-import Projects from '@/components/portfolio/Projects';
-import Testimonials from '@/components/portfolio/Testimonials';
-import Contact from '@/components/portfolio/Contact';
-import FAQ from '@/components/portfolio/FAQ';
-import Footer from '@/components/portfolio/Footer';
+
+// Lazy load below-fold sections
+const Services = lazy(() => import('@/components/portfolio/Services'));
+const About = lazy(() => import('@/components/portfolio/About'));
+const Certifications = lazy(() => import('@/components/portfolio/Certifications'));
+const Projects = lazy(() => import('@/components/portfolio/Projects'));
+const Testimonials = lazy(() => import('@/components/portfolio/Testimonials'));
+const Contact = lazy(() => import('@/components/portfolio/Contact'));
+const FAQ = lazy(() => import('@/components/portfolio/FAQ'));
+const Footer = lazy(() => import('@/components/portfolio/Footer'));
+
+const SectionFallback = () => (
+  <div className="py-24 flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+  </div>
+);
 
 const Index = () => {
   return (
@@ -15,15 +24,19 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Services />
-        <About />
-        <Certifications />
-        <Projects />
-        <Testimonials />
-        <Contact />
-        <FAQ />
+        <Suspense fallback={<SectionFallback />}>
+          <Services />
+          <About />
+          <Certifications />
+          <Projects />
+          <Testimonials />
+          <Contact />
+          <FAQ />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

@@ -99,7 +99,6 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -116,19 +115,14 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="mb-12"
         >
           <div className="relative glass-card border-primary/30 p-6 md:p-8 rounded-2xl overflow-hidden">
             <div className="absolute inset-0 bg-primary/5 animate-pulse-glow rounded-2xl" />
             <div className="relative z-10 flex items-start gap-4">
-              <motion.div
-                animate={{ rotate: [0, -10, 10, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                className="flex-shrink-0 p-2 rounded-lg glass-badge"
-              >
+              <div className="flex-shrink-0 p-2 rounded-lg glass-badge">
                 <AlertTriangle className="w-6 h-6 text-primary" />
-              </motion.div>
+              </div>
               <div className="space-y-2">
                 <h3 className="text-sm font-bold uppercase tracking-widest text-primary">
                   {t.systemAlert.label}
@@ -138,10 +132,9 @@ const Contact = () => {
                 </p>
               </div>
             </div>
-            <motion.div
-              className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent"
-              animate={{ x: ['-100%', '100%'] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+            {/* CSS scanning line */}
+            <div
+              className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent animate-scan-line"
               style={{ width: '50%' }}
             />
           </div>
@@ -150,31 +143,23 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Image & Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-8"
           >
-            {/* Workspace Image */}
             <div className="rounded-3xl overflow-hidden glass-border glow-primary">
               <img
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
                 alt="Workspace"
+                loading="lazy"
                 className="w-full h-64 object-cover"
               />
             </div>
 
-            {/* Contact Info */}
             <div className="space-y-4">
               {contactInfo.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="glass-card p-4 flex items-center gap-4"
-                >
+                <div key={i} className="glass-card p-4 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl glass-badge flex items-center justify-center">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
@@ -182,13 +167,13 @@ const Contact = () => {
                     <p className="text-sm text-muted-foreground">{item.label}</p>
                     <p className="font-medium">{item.value}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6 glow-primary">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -225,7 +210,6 @@ const Contact = () => {
                 {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
               </div>
 
-              {/* Terms Checkbox */}
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <Checkbox
