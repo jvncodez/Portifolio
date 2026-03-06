@@ -54,3 +54,9 @@ public/lovable-uploads/
 src/assets/hortec-bg.jpg
 src/data/personal.ts
 
+# Environment variables
+.env
+.env.local
+.env.production
+.env.*.local
+

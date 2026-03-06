@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertTriangle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, AlertTriangle, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -9,11 +9,37 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { z } from "zod";
 
+const RATE_LIMIT_MS = 30_000;
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
+function loadRecaptchaScript(siteKey: string) {
+  if (!siteKey || document.querySelector(`script[src*="recaptcha"]`)) return;
+  const script = document.createElement('script');
+  script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+  script.async = true;
+  document.head.appendChild(script);
+}
+
 const Contact = () => {
   const { t, lang } = useLanguage();
   const [showToast, setShowToast] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const lastSubmitRef = useRef<number>(0);
+
+  useEffect(() => {
+    loadRecaptchaScript(RECAPTCHA_SITE_KEY);
+  }, []);
 
   const contactSchema = z.object({
     name: z.string().trim().min(1, {
@@ -25,9 +51,35 @@ const Contact = () => {
     }).max(1000),
   });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const getRecaptchaToken = useCallback(async (): Promise<string | null> => {
+    if (!RECAPTCHA_SITE_KEY || !window.grecaptcha) return null;
+    try {
+      return await new Promise<string>((resolve) => {
+        window.grecaptcha!.ready(async () => {
+          const token = await window.grecaptcha!.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+          resolve(token);
+        });
+      });
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrors({});
+
+    const now = Date.now();
+    if (now - lastSubmitRef.current < RATE_LIMIT_MS) {
+      const wait = Math.ceil((RATE_LIMIT_MS - (now - lastSubmitRef.current)) / 1000);
+      const waitMsg = {
+        pt: `Aguarde ${wait}s antes de enviar novamente`,
+        en: `Please wait ${wait}s before submitting again`,
+        es: `Espere ${wait}s antes de enviar de nuevo`,
+      };
+      setErrors({ terms: waitMsg[lang] });
+      return;
+    }
 
     if (!agreed) {
       setErrors({
@@ -56,12 +108,64 @@ const Contact = () => {
       return;
     }
 
-    const whatsappMessage = `Olá, me chamo ${encodeURIComponent(data.name)}, meu email é o ${encodeURIComponent(data.email)} estou entrando em contato devido ${encodeURIComponent(data.message)}`;
-    const whatsappUrl = `https://wa.me/+5581981123549?text=${whatsappMessage}`;
-    window.open(whatsappUrl, '_blank');
-    (e.target as HTMLFormElement).reset();
-    setAgreed(false);
-  };
+    setIsSubmitting(true);
+    lastSubmitRef.current = now;
+
+    try {
+      const recaptchaToken = await getRecaptchaToken();
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          recaptchaToken,
+        }),
+      });
+
+      const json = await response.json();
+
+      if (!response.ok) {
+        const errorMsg = {
+          pt: json.error === 'Too many requests. Try again later.'
+            ? 'Muitas tentativas. Tente novamente em breve.'
+            : json.error === 'reCAPTCHA verification failed'
+              ? 'Verificação anti-spam falhou. Tente novamente.'
+              : 'Erro ao enviar. Tente novamente.',
+          en: json.error || 'Failed to send. Try again.',
+          es: json.error === 'Too many requests. Try again later.'
+            ? 'Demasiados intentos. Inténtelo de nuevo.'
+            : 'Error al enviar. Inténtelo de nuevo.',
+        };
+        setErrors({ terms: errorMsg[lang] });
+        return;
+      }
+
+      if (json.url) {
+        window.open(json.url, '_blank', 'noopener,noreferrer');
+      }
+
+      (e.target as HTMLFormElement).reset();
+      setAgreed(false);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+    } catch {
+      // Fallback: if API is unavailable, use client-side approach
+      const c = ['+','5','5','8','1','9','8','1','1','2','3','5','4','9'].join('');
+      const whatsappMessage = encodeURIComponent(
+        `Olá, me chamo ${data.name}, meu email é o ${data.email} estou entrando em contato devido ${data.message}`
+      );
+      window.open(`https://wa.me/${c}?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
+      (e.target as HTMLFormElement).reset();
+      setAgreed(false);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }, [agreed, lang, contactSchema, getRecaptchaToken]);
 
   const termsLabel = {
     pt: (
@@ -92,7 +196,7 @@ const Contact = () => {
 
   const contactInfo = [
     { icon: Mail, label: "Email", value: "jvn.silva01@gmail.com" },
-    { icon: Phone, label: "Phone", value: "+55 (81) 981123549" },
+    { icon: Phone, label: "Phone", value: "+55 (81) *****-3549" },
     { icon: MapPin, label: "Address", value: "Recife, PE - Brazil" },
   ];
 
@@ -225,9 +329,9 @@ const Contact = () => {
                 {errors.terms && <p className="text-sm text-destructive">{errors.terms}</p>}
               </div>
 
-              <Button type="submit" size="lg" className="w-full gap-2 glass-btn text-primary-foreground rounded-xl">
+              <Button type="submit" size="lg" disabled={isSubmitting} className="w-full gap-2 glass-btn text-primary-foreground rounded-xl">
+                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 {t.hire.form.send}
-                <Send className="w-4 h-4" />
               </Button>
             </form>
           </motion.div>
